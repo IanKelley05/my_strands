@@ -98,6 +98,14 @@
             background-color: #fff;
         }
 
+        .header-date {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: var(--text-main);
+            font-weight: 400;
+            display: none; /* Hide static date, we use the dropdown now */
+        }
+
         .help-wrapper {
             position: relative;
         }
@@ -242,6 +250,13 @@
             width: 250px;
             cursor: default; 
             opacity: 0.9;
+        }
+
+        .intro-date {
+            margin-top: 30px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: var(--text-main);
         }
 
         /* --- GAME CONTAINER --- */
@@ -615,6 +630,7 @@
             <p>Want to make your own strands game with your own words for us to play together?</p>
             <button class="secondary-btn">Coming soon</button>
         </div>
+        <div class="intro-date" id="intro-date-display"></div>
     </div>
 
     <div id="win-modal" class="modal">
@@ -686,23 +702,27 @@
         const gameContainer = document.getElementById('game-container');
         const startGameBtn = document.getElementById('start-game-btn');
         const dateSelector = document.getElementById('date-selector');
+        const introDateDisplay = document.getElementById('intro-date-display');
 
-        // --- DYNAMIC INITIALIZATION LOGIC ---
+        // Helper function to format "YYYY-MM-DD" to "Month DD, YYYY"
+        function formatDateString(dateStr) {
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const [year, month, day] = dateStr.split('-');
+            return `${months[parseInt(month, 10) - 1]} ${parseInt(day, 10)}, ${year}`;
+        }
+
         function initApp() {
-            // Populate the dropdown with dates from puzzles.js
             const availableDates = Object.keys(puzzleDatabase).sort().reverse();
             
             availableDates.forEach(date => {
                 const option = document.createElement('option');
                 option.value = date;
-                option.text = date;
+                option.text = formatDateString(date); // Display nicely formatted date
                 dateSelector.appendChild(option);
             });
 
-            // Load the most recent puzzle by default
             loadPuzzle(availableDates[0]);
 
-            // Listen for date changes
             dateSelector.addEventListener('change', (e) => {
                 loadPuzzle(e.target.value);
             });
@@ -715,11 +735,12 @@
             themeTitleEl.innerText = puzzleData.title;
             totalEl.innerText = currentThemeWords.length;
             
+            introDateDisplay.innerText = formatDateString(dateKey); // Update intro screen date
+            
             resetBoardForCurrentPuzzle();
         }
 
         function resetBoardForCurrentPuzzle() {
-            // Reset state
             isDrawing = false;
             currentPath = [];
             foundWordIds = [];
@@ -738,7 +759,6 @@
             hintBtn.classList.remove('active');
             bottomControls.classList.remove('visible');
 
-            // Rebuild Grid
             gridEl.innerHTML = '';
             svgLayer.innerHTML = '';
             
@@ -753,7 +773,6 @@
             updateGridVisuals();
         }
 
-        // Event Listeners for Game Interaction
         startGameBtn.addEventListener('click', () => {
             introScreen.style.display = 'none';
             gameContainer.classList.add('active');
@@ -781,7 +800,6 @@
             bottomControls.classList.add('visible');
         });
 
-        // --- GAMEPLAY FUNCTIONS ---
         function formatTime(ms) {
             const totalSeconds = Math.floor(ms / 1000);
             const minutes = Math.floor(totalSeconds / 60);
@@ -959,14 +977,16 @@
             setTimeout(() => { toastEl.style.opacity = 0; }, 2000);
         }
 
+        // --- UPDATED CONFETTI Z-INDEX ---
         function fireConfetti() {
             const duration = 3000;
             const end = Date.now() + duration;
             const pinkColors = ['#fbcfe8', '#f472b6', '#ec4899', '#be185d'];
 
             (function frame() {
-                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: pinkColors });
-                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: pinkColors });
+                // Ensure confetti renders over the modal blur
+                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: pinkColors, zIndex: 10001 });
+                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: pinkColors, zIndex: 10001 });
                 if (Date.now() < end) requestAnimationFrame(frame);
             }());
         }
@@ -1036,7 +1056,6 @@
             svgLayer.appendChild(polyline);
         }
 
-        // Boot up the application
         initApp();
 
     </script>
