@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ian's Strands</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script src="puzzles.js"></script>
+
     <style>
         /* --- MAC SAFARI BUG FIX: Aggressive selection blocking --- */
         * {
@@ -21,15 +24,12 @@
         ::-moz-selection { background: transparent; }
 
         :root {
-            /* Monochrome Pink Palette */
             --bg-color: #fdf2f8;        
             --text-main: #831843;       
             --text-muted: #db2777;      
-            
             --pink-light: #fbcfe8;      
             --pink-medium: #f472b6;     
             --pink-bold: #ec4899;       
-            
             --cell-bg: #ffffff;
             --cell-border: #fce7f3;     
         }
@@ -67,7 +67,7 @@
 
         .header-left {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             gap: 15px;
         }
 
@@ -79,11 +79,23 @@
             letter-spacing: -0.5px;
         }
 
-        .header-date {
+        /* --- NEW DATE DROPDOWN SELECTOR --- */
+        .date-selector {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--text-main);
-            font-weight: 400;
+            background-color: transparent;
+            border: 2px solid var(--pink-medium);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .date-selector:hover {
+            background-color: #fff;
         }
 
         .help-wrapper {
@@ -151,7 +163,7 @@
             border-color: transparent transparent #d1d5db transparent;
         }
 
-        /* --- NEW INTRO SCREEN --- */
+        /* --- INTRO SCREEN --- */
         #intro-screen {
             display: flex;
             flex-direction: column;
@@ -210,7 +222,6 @@
             gap: 12px;
         }
 
-        /* Updated footer text styling for the longer message */
         .intro-footer p {
             font-size: 15px;
             color: var(--text-main);
@@ -229,15 +240,8 @@
             font-size: 14px;
             font-weight: 700;
             width: 250px;
-            cursor: default; /* Changed cursor since it's "coming soon" */
+            cursor: default; 
             opacity: 0.9;
-        }
-
-        .intro-date {
-            margin-top: 30px;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: var(--text-main);
         }
 
         /* --- GAME CONTAINER --- */
@@ -582,7 +586,7 @@
     <header class="top-header">
         <div class="header-left">
             <h1 class="header-title">Ian's Strands</h1>
-            <span class="header-date">April 18, 2026</span>
+            <select id="date-selector" class="date-selector"></select>
         </div>
         <div class="help-wrapper">
             <div class="help-icon">?</div>
@@ -611,7 +615,6 @@
             <p>Want to make your own strands game with your own words for us to play together?</p>
             <button class="secondary-btn">Coming soon</button>
         </div>
-        <div class="intro-date">April 18, 2026</div>
     </div>
 
     <div id="win-modal" class="modal">
@@ -620,7 +623,7 @@
             <h2>Great Job!</h2>
             <p>You found all the words.</p>
             <div class="time-display" id="win-time">00:00</div>
-            <button class="play-again-btn" onclick="location.reload()">Play Again</button>
+            <button class="play-again-btn" onclick="document.getElementById('close-modal').click(); resetBoardForCurrentPuzzle();">Play Again</button>
         </div>
     </div>
 
@@ -628,11 +631,11 @@
         <div class="left-panel">
             <div class="theme-box">
                 <div class="theme-header">TODAY'S THEME</div>
-                <div class="theme-title">One man's trash...</div>
+                <div class="theme-title" id="theme-title-display">Loading...</div>
             </div>
             
             <div class="progress">
-                <strong id="found-count">0</strong> of <strong id="total-count">7</strong> theme words found.
+                <strong id="found-count">0</strong> of <strong id="total-count">0</strong> theme words found.
             </div>
 
             <div class="hint-meter" id="hint-meter">
@@ -649,32 +652,15 @@
         </div>
 
         <div class="bottom-controls" id="bottom-controls">
-            <button class="play-again-btn" onclick="location.reload()">Play Again</button>
+            <button class="play-again-btn" onclick="resetBoardForCurrentPuzzle();">Reset Board</button>
         </div>
     </div>
 
     <script>
-        const letters = [
-            "N", "T", "E", "A", "T", "R",
-            "I", "A", "G", "E", "H", "E",
-            "V", "U", "I", "Q", "L", "G",
-            "T", "H", "N", "U", "K", "N",
-            "D", "I", "R", "E", "I", "C",
-            "E", "N", "F", "T", "A", "R",
-            "I", "R", "O", "S", "O", "A",
-            "C", "M", "S", "R", "D", "S"
-        ];
-
-        const themeWords = [
-            { id: 0, word: "THRIFTING", path: [18, 19, 26, 25, 32, 33, 28, 23, 17], spangram: true },
-            { id: 1, word: "CROSSROADS", path: [42, 37, 38, 39, 44, 45, 40, 41, 46, 47], spangram: false },
-            { id: 2, word: "UNIQUE", path: [13, 20, 14, 15, 21, 27], spangram: false },
-            { id: 3, word: "VINTAGE", path: [12, 6, 0, 1, 7, 8, 2], spangram: false },
-            { id: 4, word: "RACK", path: [35, 34, 29, 22], spangram: false },
-            { id: 5, word: "DENIM", path: [24, 30, 31, 36, 43], spangram: false },
-            { id: 6, word: "LEATHER", path: [16, 9, 3, 4, 10, 11, 5], spangram: false }
-        ];
-
+        // Global variables initialized dynamically
+        let currentLetters = [];
+        let currentThemeWords = [];
+        
         let isDrawing = false;
         let currentPath = [];
         let foundWordIds = [];
@@ -690,30 +676,88 @@
         const hintDots = document.querySelectorAll('.dot');
         const countEl = document.getElementById('found-count');
         const totalEl = document.getElementById('total-count');
+        const themeTitleEl = document.getElementById('theme-title-display');
         const toastEl = document.getElementById('toast');
         const winModal = document.getElementById('win-modal');
         const winTimeEl = document.getElementById('win-time');
         const closeModalBtn = document.getElementById('close-modal');
         const bottomControls = document.getElementById('bottom-controls');
-        
         const introScreen = document.getElementById('intro-screen');
         const gameContainer = document.getElementById('game-container');
         const startGameBtn = document.getElementById('start-game-btn');
+        const dateSelector = document.getElementById('date-selector');
 
-        totalEl.innerText = themeWords.length;
+        // --- DYNAMIC INITIALIZATION LOGIC ---
+        function initApp() {
+            // Populate the dropdown with dates from puzzles.js
+            const availableDates = Object.keys(puzzleDatabase).sort().reverse();
+            
+            availableDates.forEach(date => {
+                const option = document.createElement('option');
+                option.value = date;
+                option.text = date;
+                dateSelector.appendChild(option);
+            });
 
+            // Load the most recent puzzle by default
+            loadPuzzle(availableDates[0]);
+
+            // Listen for date changes
+            dateSelector.addEventListener('change', (e) => {
+                loadPuzzle(e.target.value);
+            });
+        }
+
+        function loadPuzzle(dateKey) {
+            const puzzleData = puzzleDatabase[dateKey];
+            currentLetters = puzzleData.letters;
+            currentThemeWords = puzzleData.themeWords;
+            themeTitleEl.innerText = puzzleData.title;
+            totalEl.innerText = currentThemeWords.length;
+            
+            resetBoardForCurrentPuzzle();
+        }
+
+        function resetBoardForCurrentPuzzle() {
+            // Reset state
+            isDrawing = false;
+            currentPath = [];
+            foundWordIds = [];
+            foundHintWords = [];
+            hintProgress = 0;
+            activeHintWordId = null;
+            countEl.innerText = "0";
+            
+            if(gameContainer.classList.contains('active')) {
+                startTime = Date.now();
+            } else {
+                startTime = null;
+            }
+
+            updateHintMeter();
+            hintBtn.classList.remove('active');
+            bottomControls.classList.remove('visible');
+
+            // Rebuild Grid
+            gridEl.innerHTML = '';
+            svgLayer.innerHTML = '';
+            
+            currentLetters.forEach((letter, index) => {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.index = index;
+                cell.innerText = letter;
+                gridEl.appendChild(cell);
+            });
+
+            updateGridVisuals();
+        }
+
+        // Event Listeners for Game Interaction
         startGameBtn.addEventListener('click', () => {
             introScreen.style.display = 'none';
             gameContainer.classList.add('active');
             startTime = Date.now(); 
-        });
-
-        letters.forEach((letter, index) => {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            cell.dataset.index = index;
-            cell.innerText = letter;
-            gridEl.appendChild(cell);
         });
 
         document.addEventListener('dragstart', (e) => e.preventDefault());
@@ -737,6 +781,7 @@
             bottomControls.classList.add('visible');
         });
 
+        // --- GAMEPLAY FUNCTIONS ---
         function formatTime(ms) {
             const totalSeconds = Math.floor(ms / 1000);
             const minutes = Math.floor(totalSeconds / 60);
@@ -771,7 +816,7 @@
         function handleStart(e) {
             if (e.cancelable) e.preventDefault(); 
             const idx = getCellIndexFromEvent(e);
-            if (idx !== null) {
+            if (idx !== null && !foundWordIds.includes(currentThemeWords.find(t => t.path.includes(idx))?.id)) {
                 isDrawing = true;
                 currentPath = [idx];
                 updateGridVisuals();
@@ -809,9 +854,9 @@
 
             const pathStr = currentPath.join(',');
             const revPathStr = [...currentPath].reverse().join(',');
-            const wordBuilt = currentPath.map(i => letters[i]).join('');
+            const wordBuilt = currentPath.map(i => currentLetters[i]).join('');
 
-            let matchedTheme = themeWords.find(t => {
+            let matchedTheme = currentThemeWords.find(t => {
                 const pathMatch = t.path.join(',') === pathStr || t.path.join(',') === revPathStr;
                 const sameTiles = (t.path.length === currentPath.length) && 
                                   ([...t.path].sort().join(',') === [...currentPath].sort().join(','));
@@ -831,7 +876,7 @@
                         activeHintWordId = null;
                     }
                     
-                    if (foundWordIds.length === themeWords.length) {
+                    if (foundWordIds.length === currentThemeWords.length) {
                         setTimeout(handleWin, 800); 
                     }
                 }
@@ -872,7 +917,7 @@
         function useHint() {
             if (hintProgress < 3 || activeHintWordId !== null) return;
             
-            const unfound = themeWords.filter(t => !foundWordIds.includes(t.id));
+            const unfound = currentThemeWords.filter(t => !foundWordIds.includes(t.id));
             
             if (unfound.length > 0) {
                 let hintTarget;
@@ -939,7 +984,7 @@
             
             cells.forEach(cell => { cell.className = 'cell'; });
 
-            themeWords.forEach(theme => {
+            currentThemeWords.forEach(theme => {
                 if (foundWordIds.includes(theme.id)) {
                     theme.path.forEach(idx => {
                         cells[idx].classList.add('found');
@@ -949,7 +994,7 @@
             });
 
             if (activeHintWordId !== null) {
-                const hintTheme = themeWords.find(t => t.id === activeHintWordId);
+                const hintTheme = currentThemeWords.find(t => t.id === activeHintWordId);
                 if (hintTheme) {
                     hintTheme.path.forEach(idx => { cells[idx].classList.add('hint-anim'); });
                 }
@@ -963,7 +1008,7 @@
         function updateSVG() {
             svgLayer.innerHTML = '';
             
-            themeWords.forEach(theme => {
+            currentThemeWords.forEach(theme => {
                 if (foundWordIds.includes(theme.id)) {
                     drawPolyline(theme.path, theme.spangram ? 'line-spangram' : 'line-found');
                 }
@@ -990,6 +1035,10 @@
             polyline.setAttribute('class', className);
             svgLayer.appendChild(polyline);
         }
+
+        // Boot up the application
+        initApp();
+
     </script>
 </body>
 </html>
