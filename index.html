@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ian's Strands</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        /* --- MAC SAFARI BUG FIX: Aggressive selection blocking --- */
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::selection { background: transparent; }
+        ::-moz-selection { background: transparent; }
+
+        :root {
+            /* Monochrome Pink Palette */
+            --bg-color: #fdf2f8;        
+            --text-main: #831843;       
+            --text-muted: #db2777;      
+            
+            --pink-light: #fbcfe8;      
+            --pink-medium: #f472b6;     
+            --pink-bold: #ec4899;       
+            
+            --cell-bg: #ffffff;
+            --cell-border: #fce7f3;     
+        }
+
+        body {
+            font-family: 'NYT Karnak', 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            margin: 0;
+            padding: 100px 20px 30px; 
+            min-height: 100vh; 
+            background-color: var(--bg-color); 
+            color: var(--text-main);
+            touch-action: none; 
+            box-sizing: border-box;
+            overflow: hidden; 
+        }
+
+        /* --- UPDATED TOP HEADER --- */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--pink-light);
+            border-bottom: 1px solid var(--pink-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .header-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--pink-bold);
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .header-date {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        .help-wrapper {
+            position: relative;
+        }
+
+        .help-icon {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-main);
+            border: 2px solid var(--text-main);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 260px;
+            background-color: #fff;
+            color: #000;
+            text-align: left;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 16px;
+            position: absolute;
+            z-index: 101;
+            top: 150%;
+            right: -10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.5;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        .help-wrapper:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            right: 17px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+        }
+        .tooltip::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            right: 16px;
+            border-width: 9px;
+            border-style: solid;
+            border-color: transparent transparent #d1d5db transparent;
+        }
+
+        /* --- NEW INTRO SCREEN --- */
+        #intro-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: calc(100vh - 100px);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .intro-logo {
+            margin-bottom: 20px;
+        }
+
+        .intro-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 15px 0;
+            letter-spacing: -1px;
+        }
+
+        .intro-subtitle {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            color: var(--text-main);
+            margin: 0 0 35px 0;
+            line-height: 1.4;
+        }
+
+        .play-btn {
+            background-color: var(--text-main);
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 30px;
+            padding: 16px 80px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            margin-bottom: 40px;
+        }
+
+        .play-btn:hover {
+            background-color: var(--text-muted);
+            transform: scale(1.02);
+        }
+
+        .intro-footer {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Updated footer text styling for the longer message */
+        .intro-footer p {
+            font-size: 15px;
+            color: var(--text-main);
+            margin: 0 0 5px 0;
+            font-weight: 500;
+            max-width: 320px;
+            line-height: 1.4;
+        }
+
+        .secondary-btn {
+            background-color: var(--text-main);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 60px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 250px;
+            cursor: default; /* Changed cursor since it's "coming soon" */
+            opacity: 0.9;
+        }
+
+        .intro-date {
+            margin-top: 30px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        /* --- GAME CONTAINER --- */
+        .container {
+            display: none; 
+            max-width: 900px;
+            width: 100%;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start; 
+            animation: fadeIn 0.5s ease;
+        }
+
+        .container.active {
+            display: flex;
+        }
+
+        .left-panel {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin-top: 10px;
+        }
+
+        .theme-box {
+            background: #fff;
+            border: 1px solid var(--pink-medium);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .theme-header {
+            background: var(--pink-light); 
+            color: var(--text-main); 
+            padding: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--pink-medium);
+        }
+
+        .theme-title {
+            padding: 24px 20px;
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--text-main);
+            font-family: 'Georgia', 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .progress {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        .progress strong {
+            font-weight: 700;
+        }
+
+        .hint-meter {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: center;
+            height: 20px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            transition: all 0.4s ease;
+        }
+
+        .dot.filled {
+            background-color: var(--pink-medium);
+            transform: scale(1.1);
+        }
+
+        .hint-btn {
+            background: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 30px;
+            padding: 12px 45px;
+            font-size: 16px;
+            color: #9ca3af;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hint-btn.active {
+            background: #fff;
+            border: 2px solid var(--pink-medium);
+            color: var(--pink-medium);
+            cursor: pointer;
+        }
+
+        .hint-btn.active:hover {
+            background: var(--pink-light);
+            color: var(--text-main);
+        }
+
+        .hint-btn.active:active {
+            transform: scale(0.97);
+        }
+
+        .right-panel {
+            flex: 1;
+            min-width: 320px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px; 
+            position: relative;
+            z-index: 2;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            border-radius: 50%;
+            cursor: pointer;
+            background: var(--cell-bg); 
+            color: #000;
+            position: relative;
+            z-index: 3;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            border: 1px solid var(--cell-border); 
+        }
+
+        .cell.active {
+            background: var(--pink-light); 
+            transform: scale(1.08);
+            border-color: transparent;
+        }
+
+        .cell.found {
+            background: var(--pink-light);
+            border: 2px solid var(--pink-medium); 
+            color: var(--text-main); 
+        }
+
+        .cell.spangram {
+            background: var(--pink-bold);
+            border: none; 
+            color: #fff;
+        }
+
+        .cell.hint-anim::after {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border: 3px dotted var(--pink-bold);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        #svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none; 
+        }
+
+        polyline {
+            fill: none;
+            stroke-width: 12px; 
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke-dasharray 0.3s ease;
+            pointer-events: none;
+        }
+
+        .line-active { stroke: var(--pink-light); } 
+        .line-found { stroke: var(--pink-light); } 
+        .line-spangram { stroke: var(--pink-bold); }  
+
+        #toast {
+            position: fixed;
+            top: 15px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-main);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 9999; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .bottom-controls {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .bottom-controls.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .play-again-btn {
+            padding: 14px 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: var(--pink-medium); 
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .play-again-btn:hover {
+            background: var(--pink-bold);
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(253, 242, 248, 0.85);
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 12px; 
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(131, 24, 67, 0.1);
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid var(--cell-border);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #9ca3af;
+            font-family: sans-serif;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--text-main);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 36px;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-family: 'Georgia', 'Playfair Display', serif;
+            font-weight: normal;
+        }
+
+        .modal-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .time-display {
+            font-size: 54px;
+            font-weight: 300;
+            color: var(--pink-bold);
+            margin: 20px 0 35px 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="header-left">
+            <h1 class="header-title">Ian's Strands</h1>
+            <span class="header-date">April 18, 2026</span>
+        </div>
+        <div class="help-wrapper">
+            <div class="help-icon">?</div>
+            <div class="tooltip">
+                Find all theme words and the spangram by dragging to connect adjacent letters. Each puzzle has one spangram that spans from one side of the grid to the other.
+            </div>
+        </div>
+    </header>
+
+    <div id="toast"></div>
+
+    <div id="intro-screen">
+        <div class="intro-logo">
+            <svg width="70" height="70" viewBox="0 0 100 100">
+                <path d="M30,70 L30,30 L70,70 L70,30" fill="none" stroke="var(--pink-bold)" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="30" cy="30" r="10" fill="var(--pink-light)" stroke="var(--pink-bold)" stroke-width="4"/>
+                <circle cx="70" cy="70" r="10" fill="var(--pink-medium)" stroke="var(--pink-bold)" stroke-width="4"/>
+            </svg>
+        </div>
+        <h2 class="intro-title">Ian's Strands</h2>
+        <p class="intro-subtitle">Find hidden words and<br>uncover the day’s theme.</p>
+        
+        <button class="play-btn" id="start-game-btn">Play</button>
+
+        <div class="intro-footer">
+            <p>Want to make your own strands game with your own words for us to play together?</p>
+            <button class="secondary-btn">Coming soon</button>
+        </div>
+        <div class="intro-date">April 18, 2026</div>
+    </div>
+
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h2>Great Job!</h2>
+            <p>You found all the words.</p>
+            <div class="time-display" id="win-time">00:00</div>
+            <button class="play-again-btn" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <div class="container" id="game-container">
+        <div class="left-panel">
+            <div class="theme-box">
+                <div class="theme-header">TODAY'S THEME</div>
+                <div class="theme-title">One man's trash...</div>
+            </div>
+            
+            <div class="progress">
+                <strong id="found-count">0</strong> of <strong id="total-count">7</strong> theme words found.
+            </div>
+
+            <div class="hint-meter" id="hint-meter">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <button class="hint-btn" id="hint-btn">Hint</button>
+        </div>
+
+        <div class="right-panel">
+            <svg id="svg-layer"></svg>
+            <div class="grid" id="grid"></div>
+        </div>
+
+        <div class="bottom-controls" id="bottom-controls">
+            <button class="play-again-btn" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const letters = [
+            "N", "T", "E", "A", "T", "R",
+            "I", "A", "G", "E", "H", "E",
+            "V", "U", "I", "Q", "L", "G",
+            "T", "H", "N", "U", "K", "N",
+            "D", "I", "R", "E", "I", "C",
+            "E", "N", "F", "T", "A", "R",
+            "I", "R", "O", "S", "O", "A",
+            "C", "M", "S", "R", "D", "S"
+        ];
+
+        const themeWords = [
+            { id: 0, word: "THRIFTING", path: [18, 19, 26, 25, 32, 33, 28, 23, 17], spangram: true },
+            { id: 1, word: "CROSSROADS", path: [42, 37, 38, 39, 44, 45, 40, 41, 46, 47], spangram: false },
+            { id: 2, word: "UNIQUE", path: [13, 20, 14, 15, 21, 27], spangram: false },
+            { id: 3, word: "VINTAGE", path: [12, 6, 0, 1, 7, 8, 2], spangram: false },
+            { id: 4, word: "RACK", path: [35, 34, 29, 22], spangram: false },
+            { id: 5, word: "DENIM", path: [24, 30, 31, 36, 43], spangram: false },
+            { id: 6, word: "LEATHER", path: [16, 9, 3, 4, 10, 11, 5], spangram: false }
+        ];
+
+        let isDrawing = false;
+        let currentPath = [];
+        let foundWordIds = [];
+        let foundHintWords = [];
+        let hintProgress = 0;
+        let activeHintWordId = null;
+        let startTime = null; 
+        let endTime = null;
+
+        const gridEl = document.getElementById('grid');
+        const svgLayer = document.getElementById('svg-layer');
+        const hintBtn = document.getElementById('hint-btn');
+        const hintDots = document.querySelectorAll('.dot');
+        const countEl = document.getElementById('found-count');
+        const totalEl = document.getElementById('total-count');
+        const toastEl = document.getElementById('toast');
+        const winModal = document.getElementById('win-modal');
+        const winTimeEl = document.getElementById('win-time');
+        const closeModalBtn = document.getElementById('close-modal');
+        const bottomControls = document.getElementById('bottom-controls');
+        
+        const introScreen = document.getElementById('intro-screen');
+        const gameContainer = document.getElementById('game-container');
+        const startGameBtn = document.getElementById('start-game-btn');
+
+        totalEl.innerText = themeWords.length;
+
+        startGameBtn.addEventListener('click', () => {
+            introScreen.style.display = 'none';
+            gameContainer.classList.add('active');
+            startTime = Date.now(); 
+        });
+
+        letters.forEach((letter, index) => {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.dataset.index = index;
+            cell.innerText = letter;
+            gridEl.appendChild(cell);
+        });
+
+        document.addEventListener('dragstart', (e) => e.preventDefault());
+        document.addEventListener('selectstart', (e) => e.preventDefault());
+
+        gridEl.addEventListener('mousedown', handleStart);
+        gridEl.addEventListener('touchstart', handleStart, { passive: false });
+        
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('touchmove', handleMove, { passive: false });
+        
+        document.addEventListener('mouseup', handleEnd);
+        document.addEventListener('touchend', handleEnd);
+        document.addEventListener('mouseleave', handleEnd); 
+
+        window.addEventListener('resize', updateSVG);
+        hintBtn.addEventListener('click', useHint);
+
+        closeModalBtn.addEventListener('click', () => {
+            winModal.style.display = 'none';
+            bottomControls.classList.add('visible');
+        });
+
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function getCellIndexFromEvent(e) {
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            const el = document.elementFromPoint(clientX, clientY);
+            const cell = el ? el.closest('.cell') : null;
+            if (cell) {
+                return parseInt(cell.dataset.index);
+            }
+            return null;
+        }
+
+        function isAdjacent(idx1, idx2) {
+            if (idx1 === null || idx2 === null) return false;
+            const r1 = Math.floor(idx1 / 6), c1 = idx1 % 6;
+            const r2 = Math.floor(idx2 / 6), c2 = idx2 % 6;
+            return Math.abs(r1 - r2) <= 1 && Math.abs(c1 - c2) <= 1 && !(r1 === r2 && c1 === c2);
+        }
+
+        function handleStart(e) {
+            if (e.cancelable) e.preventDefault(); 
+            const idx = getCellIndexFromEvent(e);
+            if (idx !== null) {
+                isDrawing = true;
+                currentPath = [idx];
+                updateGridVisuals();
+            }
+        }
+
+        function handleMove(e) {
+            if (!isDrawing) return;
+            if (e.cancelable) e.preventDefault(); 
+            
+            const idx = getCellIndexFromEvent(e);
+            if (idx !== null && currentPath[currentPath.length - 1] !== idx) {
+                if (currentPath.length > 1 && currentPath[currentPath.length - 2] === idx) {
+                    currentPath.pop();
+                    updateGridVisuals();
+                } 
+                else if (isAdjacent(currentPath[currentPath.length - 1], idx) && !currentPath.includes(idx)) {
+                    currentPath.push(idx);
+                    updateGridVisuals();
+                }
+            }
+        }
+
+        function handleEnd(e) {
+            if (!isDrawing) return;
+            isDrawing = false;
+            validatePath();
+        }
+
+        async function validatePath() {
+            if (currentPath.length < 2) {
+                resetPath();
+                return;
+            }
+
+            const pathStr = currentPath.join(',');
+            const revPathStr = [...currentPath].reverse().join(',');
+            const wordBuilt = currentPath.map(i => letters[i]).join('');
+
+            let matchedTheme = themeWords.find(t => {
+                const pathMatch = t.path.join(',') === pathStr || t.path.join(',') === revPathStr;
+                const sameTiles = (t.path.length === currentPath.length) && 
+                                  ([...t.path].sort().join(',') === [...currentPath].sort().join(','));
+                const spellsWord = (wordBuilt === t.word || wordBuilt === t.word.split('').reverse().join(''));
+                
+                return pathMatch || (sameTiles && spellsWord);
+            });
+
+            if (matchedTheme) {
+                if (foundWordIds.includes(matchedTheme.id)) {
+                    showToast("Already found!");
+                } else {
+                    foundWordIds.push(matchedTheme.id);
+                    countEl.innerText = foundWordIds.length;
+                    
+                    if (activeHintWordId === matchedTheme.id) {
+                        activeHintWordId = null;
+                    }
+                    
+                    if (foundWordIds.length === themeWords.length) {
+                        setTimeout(handleWin, 800); 
+                    }
+                }
+            } 
+            else if (currentPath.length >= 4) {
+                const checkWord = wordBuilt;
+                const revCheckWord = checkWord.split('').reverse().join('');
+
+                if (foundHintWords.includes(checkWord) || foundHintWords.includes(revCheckWord)) {
+                    showToast("Already found!");
+                    resetPath();
+                    return;
+                }
+
+                fetch(`https://api.datamuse.com/words?sp=${checkWord}&max=1`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.length > 0 && data[0].word.toUpperCase() === checkWord) {
+                            foundHintWords.push(checkWord);
+                            addHintProgress();
+                        }
+                    }).catch(err => console.error("Dictionary check failed", err));
+            }
+
+            resetPath();
+        }
+
+        function addHintProgress() {
+            if (hintProgress < 3 && activeHintWordId === null) {
+                hintProgress++;
+                updateHintMeter();
+            }
+            if (hintProgress === 3) {
+                hintBtn.classList.add('active');
+            }
+        }
+
+        function useHint() {
+            if (hintProgress < 3 || activeHintWordId !== null) return;
+            
+            const unfound = themeWords.filter(t => !foundWordIds.includes(t.id));
+            
+            if (unfound.length > 0) {
+                let hintTarget;
+
+                if (unfound.length > 1) {
+                    const nonSpangrams = unfound.filter(t => !t.spangram);
+                    const pool = nonSpangrams.length > 0 ? nonSpangrams : unfound;
+                    hintTarget = pool[Math.floor(Math.random() * pool.length)];
+                } else {
+                    hintTarget = unfound[0];
+                }
+
+                if (hintTarget) {
+                    hintProgress = 0;
+                    updateHintMeter();
+                    hintBtn.classList.remove('active');
+                    
+                    activeHintWordId = hintTarget.id;
+                    updateGridVisuals();
+                }
+            }
+        }
+
+        function updateHintMeter() {
+            hintDots.forEach((dot, index) => {
+                if (index < hintProgress) dot.classList.add('filled');
+                else dot.classList.remove('filled');
+            });
+        }
+
+        function resetPath() {
+            currentPath = [];
+            updateGridVisuals();
+        }
+
+        function showToast(msg) {
+            toastEl.innerText = msg;
+            toastEl.style.opacity = 1;
+            setTimeout(() => { toastEl.style.opacity = 0; }, 2000);
+        }
+
+        function fireConfetti() {
+            const duration = 3000;
+            const end = Date.now() + duration;
+            const pinkColors = ['#fbcfe8', '#f472b6', '#ec4899', '#be185d'];
+
+            (function frame() {
+                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: pinkColors });
+                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: pinkColors });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
+
+        function handleWin() {
+            endTime = Date.now();
+            const timeTaken = formatTime(endTime - startTime);
+            winTimeEl.innerText = timeTaken;
+            winModal.style.display = 'flex';
+            fireConfetti(); 
+        }
+
+        function updateGridVisuals() {
+            const cells = document.querySelectorAll('.cell');
+            
+            cells.forEach(cell => { cell.className = 'cell'; });
+
+            themeWords.forEach(theme => {
+                if (foundWordIds.includes(theme.id)) {
+                    theme.path.forEach(idx => {
+                        cells[idx].classList.add('found');
+                        if (theme.spangram) cells[idx].classList.add('spangram');
+                    });
+                }
+            });
+
+            if (activeHintWordId !== null) {
+                const hintTheme = themeWords.find(t => t.id === activeHintWordId);
+                if (hintTheme) {
+                    hintTheme.path.forEach(idx => { cells[idx].classList.add('hint-anim'); });
+                }
+            }
+
+            currentPath.forEach(idx => { cells[idx].classList.add('active'); });
+
+            updateSVG();
+        }
+
+        function updateSVG() {
+            svgLayer.innerHTML = '';
+            
+            themeWords.forEach(theme => {
+                if (foundWordIds.includes(theme.id)) {
+                    drawPolyline(theme.path, theme.spangram ? 'line-spangram' : 'line-found');
+                }
+            });
+
+            if (currentPath.length > 1) {
+                drawPolyline(currentPath, 'line-active');
+            }
+        }
+
+        function drawPolyline(pathArray, className) {
+            const cells = document.querySelectorAll('.cell');
+            const svgRect = svgLayer.getBoundingClientRect();
+            
+            const points = pathArray.map(idx => {
+                const rect = cells[idx].getBoundingClientRect();
+                const x = rect.left + rect.width / 2 - svgRect.left;
+                const y = rect.top + rect.height / 2 - svgRect.top;
+                return `${x},${y}`;
+            }).join(' ');
+
+            const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+            polyline.setAttribute('points', points);
+            polyline.setAttribute('class', className);
+            svgLayer.appendChild(polyline);
+        }
+    </script>
+</body>
+</html>
