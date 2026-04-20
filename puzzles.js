@@ -16,27 +16,27 @@
  */
 
 const puzzleDatabase = {
-"2026-04-20": {
+    "2026-04-20": {
         title: "Up in smoke",
         letters: [
-            "M", "U", "N", "S", "I", "D",
-            "C", "H", "I", "N", "C", "N",
-            "E", "S", "R", "O", "A", "I",
-            "M", "A", "J", "I", "O", "P",
-            "B", "T", "O", "T", "J", "B",
-            "L", "N", "I", "N", "U", "O",
-            "U", "A", "V", "A", "N", "N",
-            "S", "A", "T", "I", "G", "A"
+            "M", "U", "N", "M", "N", "S",
+            "E", "S", "C", "A", "O", "O",
+            "I", "H", "I", "R", "I", "P",
+            "B", "O", "N", "J", "N", "D",
+            "B", "L", "G", "U", "C", "I",
+            "S", "U", "N", "A", "A", "J",
+            "A", "V", "T", "N", "I", "O",
+            "T", "I", "A", "A", "N", "T"
         ],
         themeWords: [
-            { id: 0, word: "MARIJUANA", path: [18, 19, 14, 21, 28, 34, 39, 40, 47], spangram: true },
-            { id: 1, word: "MUNCHIES", path: [0, 1, 2, 8, 7, 6, 12, 13], spangram: false },
-            { id: 2, word: "SNOOP", path: [3, 9, 15, 22, 23], spangram: false },
-            { id: 3, word: "INDICA", path: [17, 11, 5, 4, 10, 16], spangram: false },
-            { id: 4, word: "BLUNT", path: [24, 30, 36, 31, 25], spangram: false },
-            { id: 5, word: "JOINT", path: [20, 26, 32, 33, 27], spangram: false },
-            { id: 6, word: "BONG", path: [29, 35, 41, 46], spangram: false },
-            { id: 7, word: "SATIVA", path: [42, 43, 44, 45, 38, 37], spangram: false }
+            { id: 0, word: "MARIJUANA", path: [3, 9, 15, 14, 21, 27, 33, 39, 45], spangram: true },
+            { id: 1, word: "MUNCHIES", path: [0, 1, 2, 8, 13, 12, 6, 7], spangram: false },
+            { id: 2, word: "SNOOP", path: [5, 4, 10, 11, 17], spangram: false },
+            { id: 3, word: "INDICA", path: [16, 22, 23, 29, 28, 34], spangram: false },
+            { id: 4, word: "BONG", path: [18, 19, 20, 26], spangram: false },
+            { id: 5, word: "BLUNT", path: [24, 25, 31, 32, 38], spangram: false },
+            { id: 6, word: "SATIVA", path: [30, 36, 42, 43, 37, 44], spangram: false },
+            { id: 7, word: "JOINT", path: [35, 41, 40, 46, 47], spangram: false }
         ]
     },
     /*
