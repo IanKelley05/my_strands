@@ -2,6 +2,27 @@
 // The key is the date (YYYY-MM-DD) which will show up in the dropdown menu.
 
 const puzzleDatabase = {
+    "2026-04-19": {
+        title: "Midnight cravings",
+        letters: [
+            "G", "O", "L", "H", "S", "U",
+            "H", "F", "D", "E", "S", "G",
+            "S", "I", "D", "R", "H", "C",
+            "S", "W", "E", "I", "S", "A",
+            "S", "A", "T", "Y", "D", "N",
+            "I", "K", "I", "O", "A", "R",
+            "M", "H", "T", "O", "T", "I",
+            "O", "C", "Y", "B", "E", "P"
+        ],
+        themeWords: [
+            { id: 0, word: "SWEDISHCANDY", path: [18, 19, 20, 14, 21, 22, 16, 17, 23, 29, 28, 27], spangram: true },
+            { id: 1, word: "PIRATEBOOTY", path: [47, 41, 35, 34, 40, 46, 45, 39, 33, 38, 44], spangram: false },
+            { id: 2, word: "GOLDFISH", path: [0, 1, 2, 8, 7, 13, 12, 6], spangram: false },
+            { id: 3, word: "GUSHERS", path: [11, 5, 4, 3, 9, 15, 10], spangram: false },
+            { id: 4, word: "TAKIS", path: [26, 25, 31, 30, 24], spangram: false },
+            { id: 5, word: "MOCHI", path: [36, 42, 43, 37, 32], spangram: false }
+        ]
+    },
     "2026-04-18": {
         title: "One man's trash...",
         letters: [

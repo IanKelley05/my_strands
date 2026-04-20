@@ -103,7 +103,7 @@
             font-size: 18px;
             color: var(--text-main);
             font-weight: 400;
-            display: none; /* Hide static date, we use the dropdown now */
+            display: none; 
         }
 
         .help-wrapper {
@@ -383,8 +383,30 @@
             min-width: 320px;
             position: relative;
             display: flex;
+            flex-direction: column; /* Updated to column to stack text and grid */
             justify-content: center;
             align-items: center;
+        }
+
+        /* --- NEW CURRENT WORD DISPLAY --- */
+        .current-word-display {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            height: 30px; 
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- NEW GRID WRAPPER --- */
+        .grid-container {
+            position: relative;
+            display: inline-block;
         }
 
         .grid {
@@ -663,8 +685,12 @@
         </div>
 
         <div class="right-panel">
-            <svg id="svg-layer"></svg>
-            <div class="grid" id="grid"></div>
+            <div id="current-word-display" class="current-word-display"></div>
+            
+            <div class="grid-container">
+                <svg id="svg-layer"></svg>
+                <div class="grid" id="grid"></div>
+            </div>
         </div>
 
         <div class="bottom-controls" id="bottom-controls">
@@ -693,6 +719,7 @@
         const countEl = document.getElementById('found-count');
         const totalEl = document.getElementById('total-count');
         const themeTitleEl = document.getElementById('theme-title-display');
+        const currentWordEl = document.getElementById('current-word-display'); // DOM connection
         const toastEl = document.getElementById('toast');
         const winModal = document.getElementById('win-modal');
         const winTimeEl = document.getElementById('win-time');
@@ -704,7 +731,6 @@
         const dateSelector = document.getElementById('date-selector');
         const introDateDisplay = document.getElementById('intro-date-display');
 
-        // Helper function to format "YYYY-MM-DD" to "Month DD, YYYY"
         function formatDateString(dateStr) {
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             const [year, month, day] = dateStr.split('-');
@@ -717,7 +743,7 @@
             availableDates.forEach(date => {
                 const option = document.createElement('option');
                 option.value = date;
-                option.text = formatDateString(date); // Display nicely formatted date
+                option.text = formatDateString(date); 
                 dateSelector.appendChild(option);
             });
 
@@ -735,7 +761,7 @@
             themeTitleEl.innerText = puzzleData.title;
             totalEl.innerText = currentThemeWords.length;
             
-            introDateDisplay.innerText = formatDateString(dateKey); // Update intro screen date
+            introDateDisplay.innerText = formatDateString(dateKey); 
             
             resetBoardForCurrentPuzzle();
         }
@@ -761,6 +787,7 @@
 
             gridEl.innerHTML = '';
             svgLayer.innerHTML = '';
+            currentWordEl.innerText = ''; // Clear live word
             
             currentLetters.forEach((letter, index) => {
                 const cell = document.createElement('div');
@@ -977,14 +1004,12 @@
             setTimeout(() => { toastEl.style.opacity = 0; }, 2000);
         }
 
-        // --- UPDATED CONFETTI Z-INDEX ---
         function fireConfetti() {
             const duration = 3000;
             const end = Date.now() + duration;
             const pinkColors = ['#fbcfe8', '#f472b6', '#ec4899', '#be185d'];
 
             (function frame() {
-                // Ensure confetti renders over the modal blur
                 confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: pinkColors, zIndex: 10001 });
                 confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: pinkColors, zIndex: 10001 });
                 if (Date.now() < end) requestAnimationFrame(frame);
@@ -1021,6 +1046,13 @@
             }
 
             currentPath.forEach(idx => { cells[idx].classList.add('active'); });
+
+            // NEW: UPDATE LIVE TEXT
+            if (currentPath.length > 0) {
+                currentWordEl.innerText = currentPath.map(i => currentLetters[i]).join('');
+            } else {
+                currentWordEl.innerText = '';
+            }
 
             updateSVG();
         }
