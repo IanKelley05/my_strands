@@ -2,6 +2,28 @@
 // The key is the date (YYYY-MM-DD) which will show up in the dropdown menu.
 
 const puzzleDatabase = {
+    "2026-04-20": {
+    title: "House guests",
+    letters: [
+        "W", "A", "S", "H", "I", "N",
+        "G", "T", "O", "N", "E", "D",
+        "Y", "D", "E", "N", "N", "I",
+        "K", "E", "L", "I", "B", "B",
+        "P", "R", "N", "C", "A", "O",
+        "E", "S", "I", "O", "M", "L",
+        "S", "D", "E", "L", "N", "N",
+        "N", "T", "O", "X", "I", "A"
+    ],
+    themeWords: [
+        { id: 0, word: "PRESIDENTS", path: [24, 25, 30, 31, 32, 37, 38, 43, 42, 36], spangram: true },
+        { id: 1, word: "WASHINGTON", path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], spangram: false },
+        { id: 2, word: "KENNEDY", path: [18, 19, 12, 13, 14, 15, 16], spangram: false },
+        { id: 3, word: "LINCOLN", path: [21, 27, 33, 39, 35, 41, 40], spangram: false },
+        { id: 4, word: "OBAMA", path: [29, 23, 28, 34, 47], spangram: false },
+        { id: 5, word: "BIDEN", path: [22, 17, 11, 10, 16], spangram: false },
+        { id: 6, word: "NIXON", path: [42, 43, 44, 45, 46], spangram: false }
+        ]
+    },
     "2026-04-19": {
         title: "Midnight cravings",
         letters: [
