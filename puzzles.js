@@ -16,30 +16,53 @@
  */
 
 const puzzleDatabase = {
-    "2026-04-20": {
-        title: "House guests",
+"2026-04-20": {
+        title: "Up in smoke",
         letters: [
-            "P", "R", "E", "B", "I", "D",
-            "S", "I", "D", "A", "M", "E",
-            "E", "N", "O", "B", "A", "N",
-            "N", "T", "D", "K", "E", "N",
-            "T", "S", "Y", "D", "E", "N",
-            "I", "L", "O", "C", "A", "G",
-            "X", "O", "N", "L", "N", "A",
-            "F", "O", "R", "D", "E", "R"
+            "M", "U", "N", "S", "I", "D",
+            "C", "H", "I", "N", "C", "N",
+            "E", "S", "R", "O", "A", "I",
+            "M", "A", "J", "I", "O", "P",
+            "B", "T", "O", "T", "J", "B",
+            "L", "N", "I", "N", "U", "O",
+            "U", "A", "V", "A", "N", "N",
+            "S", "A", "T", "I", "G", "A"
         ],
         themeWords: [
-            { id: 0, word: "PRESIDENTS", path: [0, 1, 2, 6, 12, 13, 19, 20, 25, 24], spangram: true },
-            { id: 1, word: "BIDEN", path: [3, 4, 5, 11, 17], spangram: false },
-            { id: 2, word: "OBAMA", path: [14, 8, 9, 10, 16], spangram: false },
-            { id: 3, word: "KENNEDY", path: [21, 22, 23, 29, 28, 27, 26], spangram: false },
-            { id: 4, word: "LINCOLN", path: [31, 32, 33, 39, 40, 34, 41], spangram: false },
-            { id: 5, word: "REAGAN", path: [47, 46, 45, 44, 38, 35], spangram: false },
-            { id: 6, word: "NIXON", path: [30, 36, 37, 43, 42], spangram: false },
-            { id: 7, word: "FORD", path: [42, 43, 44, 45], spangram: false } // Ford is tucked in the bottom left corner
+            { id: 0, word: "MARIJUANA", path: [18, 19, 14, 21, 28, 34, 39, 40, 47], spangram: true },
+            { id: 1, word: "MUNCHIES", path: [0, 1, 2, 8, 7, 6, 12, 13], spangram: false },
+            { id: 2, word: "SNOOP", path: [3, 9, 15, 22, 23], spangram: false },
+            { id: 3, word: "INDICA", path: [17, 11, 5, 4, 10, 16], spangram: false },
+            { id: 4, word: "BLUNT", path: [24, 30, 36, 31, 25], spangram: false },
+            { id: 5, word: "JOINT", path: [20, 26, 32, 33, 27], spangram: false },
+            { id: 6, word: "BONG", path: [29, 35, 41, 46], spangram: false },
+            { id: 7, word: "SATIVA", path: [42, 43, 44, 45, 38, 37], spangram: false }
         ]
     },
-
+    /*
+    "2026-04-21": {
+        title: "House guests",
+        letters: [
+            "B", "I", "D", "E", "N", "Y",
+            "K", "E", "N", "N", "E", "D",
+            "P", "R", "E", "S", "I", "D",
+            "N", "O", "N", "O", "N", "E",
+            "I", "X", "B", "S", "T", "C",
+            "R", "V", "A", "M", "O", "N",
+            "O", "E", "E", "A", "L", "I",
+            "O", "S", "L", "T", "N", "L"
+        ],
+        themeWords: [
+            { id: 0, word: "PRESIDENTS", path: [12, 13, 14, 15, 16, 17, 23, 22, 28, 27], spangram: true },
+            { id: 1, word: "BIDEN", path: [0, 1, 2, 3, 4], spangram: false },
+            { id: 2, word: "KENNEDY", path: [6, 7, 8, 9, 10, 11, 5], spangram: false },
+            { id: 3, word: "NIXON", path: [18, 24, 25, 19, 20], spangram: false },
+            { id: 4, word: "OBAMA", path: [21, 26, 32, 33, 39], spangram: false },
+            { id: 5, word: "ROOSEVELT", path: [30, 36, 42, 43, 37, 31, 38, 44, 45], spangram: false },
+            { id: 6, word: "LINCOLN", path: [47, 41, 35, 29, 34, 40, 46], spangram: false }
+        ]
+    },
+    */
     "2026-04-19": {
         title: "Midnight cravings",
         letters: [
