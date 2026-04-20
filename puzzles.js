@@ -1,6 +1,20 @@
 // This file acts as our database for all Strands puzzles.
 // The key is the date (YYYY-MM-DD) which will show up in the dropdown menu.
 
+/**
+ * STRANDS PUZZLE ARCHITECTURE RULES:
+ * * 1. THE GRID: Must be exactly 48 letters (6 columns x 8 rows).
+ * 2. TOTAL COVERAGE: Every single letter in the 'letters' array MUST be used 
+ * in exactly one 'themeWord' path. There are no "decoy" letters.
+ * 3. ADJACENCY: Words must be formed by connecting adjacent letters. 
+ * A letter at index [i] can only connect to a letter that is horizontally, 
+ * vertically, or diagonally adjacent in the 6x8 grid.
+ * 4. THE SPANGRAM: One word (the theme) must touch two opposite sides of the 
+ * board (Left to Right or Top to Bottom).
+ * 5. PATHING: The 'path' array contains the indices (0-47) of the letters.
+ * Mapping: Index = (Row * 6) + Column.
+ */
+
 const puzzleDatabase = {
     "2026-04-20": {
         title: "House guests",
