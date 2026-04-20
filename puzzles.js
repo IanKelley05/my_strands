@@ -19,24 +19,24 @@ const puzzleDatabase = {
     "2026-04-20": {
         title: "House guests",
         letters: [
-            "B", "I", "D", "E", "N", "R",
-            "O", "B", "A", "M", "A", "E",
-            "K", "E", "N", "N", "E", "G",
-            "L", "I", "N", "C", "O", "D",
-            "L", "P", "R", "E", "S", "Y",
-            "O", "I", "D", "E", "N", "A",
-            "C", "X", "I", "N", "T", "S",
-            "N", "O", "F", "O", "R", "D"
+            "P", "R", "E", "B", "I", "D",
+            "S", "I", "D", "A", "M", "E",
+            "E", "N", "O", "B", "A", "N",
+            "N", "T", "D", "K", "E", "N",
+            "T", "S", "Y", "D", "E", "N",
+            "I", "L", "O", "C", "A", "G",
+            "X", "O", "N", "L", "N", "A",
+            "F", "O", "R", "D", "E", "R"
         ],
         themeWords: [
-            { id: 0, word: "PRESIDENTS", path: [25, 26, 27, 28, 34, 33, 32, 31, 40, 41], spangram: true },
-            { id: 1, word: "BIDEN", path: [0, 1, 2, 3, 4], spangram: false },
-            { id: 2, word: "OBAMA", path: [6, 7, 8, 9, 10], spangram: false },
-            { id: 3, word: "REAGAN", path: [5, 11, 17, 23, 29, 35], spangram: false },
-            { id: 4, word: "KENNEDY", path: [12, 13, 14, 15, 16, 22, 21], spangram: false },
-            { id: 5, word: "LINCOLN", path: [18, 19, 20, 24, 30, 36, 42], spangram: false },
-            { id: 6, word: "NIXON", path: [37, 38, 39, 43, 44], spangram: false },
-            { id: 7, word: "FORD", path: [45, 46, 47, 41], spangram: false } // Note: Ford shares a corner but uses unique indices
+            { id: 0, word: "PRESIDENTS", path: [0, 1, 2, 6, 12, 13, 19, 20, 25, 24], spangram: true },
+            { id: 1, word: "BIDEN", path: [3, 4, 5, 11, 17], spangram: false },
+            { id: 2, word: "OBAMA", path: [14, 8, 9, 10, 16], spangram: false },
+            { id: 3, word: "KENNEDY", path: [21, 22, 23, 29, 28, 27, 26], spangram: false },
+            { id: 4, word: "LINCOLN", path: [31, 32, 33, 39, 40, 34, 41], spangram: false },
+            { id: 5, word: "REAGAN", path: [47, 46, 45, 44, 38, 35], spangram: false },
+            { id: 6, word: "NIXON", path: [30, 36, 37, 43, 42], spangram: false },
+            { id: 7, word: "FORD", path: [42, 43, 44, 45], spangram: false } // Ford is tucked in the bottom left corner
         ]
     },
 
