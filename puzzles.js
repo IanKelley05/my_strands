@@ -16,6 +16,29 @@
  */
 
 const puzzleDatabase = {
+    "2026-04-21": {
+        "title": "House guests",
+        "letters": [
+            "K", "D", "E", "E", "R", "P",
+            "E", "I", "N", "S", "O", "B",
+            "N", "B", "D", "I", "M", "A",
+            "N", "E", "E", "N", "A", "R",
+            "L", "D", "N", "I", "T", "O",
+            "I", "Y", "T", "X", "L", "O",
+            "N", "L", "S", "O", "E", "S",
+            "C", "O", "N", "N", "V", "E"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "PRESIDENTS", "path": [5, 4, 3, 9, 15, 14, 20, 26, 32, 38], "spangram": true },
+            { "id": 1, "word": "BIDEN", "path": [13, 7, 1, 2, 8], "spangram": false },
+            { "id": 2, "word": "KENNEDY", "path": [0, 6, 12, 18, 19, 25, 31], "spangram": false },
+            { "id": 3, "word": "NIXON", "path": [21, 27, 33, 39, 45], "spangram": false },
+            { "id": 4, "word": "OBAMA", "path": [10, 11, 17, 16, 22], "spangram": false },
+            { "id": 5, "word": "ROOSEVELT", "path": [23, 29, 35, 41, 47, 46, 40, 34, 28], "spangram": false },
+            { "id": 6, "word": "LINCOLN", "path": [24, 30, 36, 42, 43, 37, 44], "spangram": false }
+        ]
+    },
+
     "2026-04-20": {
         title: "Up in smoke",
         letters: [
@@ -37,29 +60,6 @@ const puzzleDatabase = {
             { id: 5, word: "BLUNT", path: [24, 25, 31, 32, 38], spangram: false },
             { id: 6, word: "SATIVA", path: [30, 36, 42, 43, 37, 44], spangram: false },
             { id: 7, word: "JOINT", path: [35, 41, 40, 46, 47], spangram: false }
-        ]
-    },
-    
-    "2026-04-21": {
-        title: "House guests",
-        letters: [
-            "B", "I", "D", "E", "N", "Y",
-            "K", "E", "N", "N", "E", "D",
-            "P", "R", "E", "S", "I", "D",
-            "N", "O", "N", "O", "N", "E",
-            "I", "X", "B", "S", "T", "C",
-            "R", "V", "A", "M", "O", "N",
-            "O", "E", "E", "A", "L", "I",
-            "O", "S", "L", "T", "N", "L"
-        ],
-        themeWords: [
-            { id: 0, word: "PRESIDENTS", path: [12, 13, 14, 15, 16, 17, 23, 22, 28, 27], spangram: true },
-            { id: 1, word: "BIDEN", path: [0, 1, 2, 3, 4], spangram: false },
-            { id: 2, word: "KENNEDY", path: [6, 7, 8, 9, 10, 11, 5], spangram: false },
-            { id: 3, word: "NIXON", path: [18, 24, 25, 19, 20], spangram: false },
-            { id: 4, word: "OBAMA", path: [21, 26, 32, 33, 39], spangram: false },
-            { id: 5, word: "ROOSEVELT", path: [30, 36, 42, 43, 37, 31, 38, 44, 45], spangram: false },
-            { id: 6, word: "LINCOLN", path: [47, 41, 35, 29, 34, 40, 46], spangram: false }
         ]
     },
     
