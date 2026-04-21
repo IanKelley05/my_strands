@@ -39,7 +39,7 @@ const puzzleDatabase = {
             { id: 7, word: "JOINT", path: [35, 41, 40, 46, 47], spangram: false }
         ]
     },
-    /*
+    
     "2026-04-21": {
         title: "House guests",
         letters: [
@@ -62,7 +62,7 @@ const puzzleDatabase = {
             { id: 6, word: "LINCOLN", path: [47, 41, 35, 29, 34, 40, 46], spangram: false }
         ]
     },
-    */
+    
     "2026-04-19": {
         title: "Midnight cravings",
         letters: [
