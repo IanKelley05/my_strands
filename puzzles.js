@@ -16,6 +16,33 @@
  */
 
 const puzzleDatabase = {
+    "2026-04-22": {
+        "title": "Earth Day",
+        "letters": [
+            "W", "H", "R", "E", "C", "Y",
+            "I", "T", "C", "E", "L", "C",
+            "L", "R", "I", "T", "M", "I",
+            "L", "A", "A", "S", "A", "L",
+            "Y", "E", "L", "E", "T", "C",
+            "O", "Y", "P", "U", "R", "E",
+            "U", "M", "A", "T", "O", "O",
+            "B", "E", "N", "S", "D", "W"
+        ],
+        "themeWords": [
+            { 
+                "id": 0, 
+                "word": "WILLYOUBEMYEARTH", 
+                "path": [0, 6, 12, 18, 24, 30, 36, 42, 43, 37, 31, 25, 19, 13, 7, 1], 
+                "spangram": true 
+            },
+            { "id": 1, "word": "RECYCLE", "path": [2, 3, 4, 5, 11, 10, 9], "spangram": false },
+            { "id": 2, "word": "PLASTIC", "path": [32, 26, 20, 21, 15, 14, 8], "spangram": false },
+            { "id": 3, "word": "NATURE", "path": [44, 38, 39, 33, 34, 35], "spangram": false },
+            { "id": 4, "word": "CLIMATE", "path": [29, 23, 17, 16, 22, 28, 27], "spangram": false },
+            { "id": 5, "word": "WOODS", "path": [47, 41, 40, 46, 45], "spangram": false }
+        ]
+    },
+
     "2026-04-21": {
         "title": "House guests",
         "letters": [
