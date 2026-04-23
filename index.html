@@ -898,14 +898,15 @@
             }
 
             const pathStr = currentPath.join(',');
-            const revPathStr = [...currentPath].reverse().join(',');
             const wordBuilt = currentPath.map(i => currentLetters[i]).join('');
 
             let matchedTheme = currentThemeWords.find(t => {
-                const pathMatch = t.path.join(',') === pathStr || t.path.join(',') === revPathStr;
+                // Check for forward path match only
+                const pathMatch = t.path.join(',') === pathStr;
                 const sameTiles = (t.path.length === currentPath.length) && 
                                   ([...t.path].sort().join(',') === [...currentPath].sort().join(','));
-                const spellsWord = (wordBuilt === t.word || wordBuilt === t.word.split('').reverse().join(''));
+                // Check for forward spelling only
+                const spellsWord = (wordBuilt === t.word);
                 
                 return pathMatch || (sameTiles && spellsWord);
             });
@@ -928,9 +929,9 @@
             } 
             else if (currentPath.length >= 4) {
                 const checkWord = wordBuilt;
-                const revCheckWord = checkWord.split('').reverse().join('');
 
-                if (foundHintWords.includes(checkWord) || foundHintWords.includes(revCheckWord)) {
+                // Removed the reverse check for dictionary hint words as well
+                if (foundHintWords.includes(checkWord)) {
                     showToast("Already found!");
                     resetPath();
                     return;

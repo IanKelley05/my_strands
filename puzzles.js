@@ -16,6 +16,34 @@
  */
 
 const puzzleDatabase = {
+    "2026-04-23": {
+        "title": "Table for two?",
+        "letters": [
+            "L", "A", "H", "C", "U", "S",
+            "Z", "V", "E", "A", "A", "U",
+            "I", "A", "K", "A", "Y", "R",
+            "D", "T", "A", "U", "N", "G",
+            "I", "N", "I", "F", "U", "T",
+            "D", "I", "N", "G", "O", "A",
+            "I", "N", "L", "O", "Z", "Z",
+            "P", "A", "R", "R", "P", "I"
+        ],
+        "themeWords": [
+            { 
+                "id": 0, 
+                "word": "DININGOUT", 
+                "path": [30, 36, 37, 31, 32, 33, 34, 28, 29], 
+                "spangram": true 
+            },
+            { "id": 1, "word": "PARLORPIZZA", "path": [42, 43, 44, 38, 39, 45, 46, 47, 41, 40, 35], "spangram": false },
+            { "id": 2, "word": "DINTAIFUNG", "path": [18, 24, 25, 19, 20, 26, 27, 21, 22, 23], "spangram": false },
+            { "id": 3, "word": "AUCHEVAL", "path": [10, 4, 3, 2, 8, 7, 1, 0], "spangram": false },
+            { "id": 4, "word": "IZAKAYA", "path": [12, 6, 13, 14, 15, 16, 9], "spangram": false },
+            { "id": 5, "word": "SUR", "path": [5, 11, 17], "spangram": false }
+        ]
+    },
+    // ... The rest of your dates (2026-04-22, etc.) stay the same,
+
     "2026-04-22": {
         "title": "Earth Day",
         "letters": [
