@@ -1,21 +1,33 @@
 // This file acts as our database for all Strands puzzles.
 // The key is the date (YYYY-MM-DD) which will show up in the dropdown menu.
 
-/**
- * STRANDS PUZZLE ARCHITECTURE RULES:
- * * 1. THE GRID: Must be exactly 48 letters (6 columns x 8 rows).
- * 2. TOTAL COVERAGE: Every single letter in the 'letters' array MUST be used 
- * in exactly one 'themeWord' path. There are no "decoy" letters.
- * 3. ADJACENCY: Words must be formed by connecting adjacent letters. 
- * A letter at index [i] can only connect to a letter that is horizontally, 
- * vertically, or diagonally adjacent in the 6x8 grid.
- * 4. THE SPANGRAM: One word (the theme) must touch two opposite sides of the 
- * board (Left to Right or Top to Bottom).
- * 5. PATHING: The 'path' array contains the indices (0-47) of the letters.
- * Mapping: Index = (Row * 6) + Column.
- */
+// https://iankelley05.github.io/createStrandsWords/
+// Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+        "2026-04-24": {
+        "title": "Tiles of Truth",
+        "letters": [
+            "G", "N", "A", "T", "E", "D",
+            "A", "R", "O", "C", "N", "R",
+            "H", "C", "B", "J", "I", "M",
+            "M", "A", "S", "H", "A", "W",
+            "B", "T", "N", "E", "R", "D",
+            "O", "O", "F", "A", "L", "R",
+            "O", "L", "G", "C", "H", "A",
+            "N", "O", "O", "W", "E", "R"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "MAHJONG", "path": [17, 22, 21, 15, 8, 1, 0], "spangram": true},
+            { "id": 1, "word": "DRAGON", "path": [29, 28, 33, 38, 43, 42], "spangram": false},
+            { "id": 2, "word": "BAMBOO", "path": [14, 19, 18, 24, 30, 36], "spangram": false },
+            { "id": 3, "word": "CHARACTER", "path": [13, 12, 6, 7, 2, 9, 3, 4, 11], "spangram": false},
+            { "id": 4, "word": "FLOWER", "path": [32, 37, 44, 45, 46, 47], "spangram": false},
+            { "id": 5, "word": "WIND", "path": [23, 16, 10, 5], "spangram": false},
+            { "id": 6, "word": "CHARLESTON", "path": [39, 40, 41, 35, 34, 27, 20, 25, 31, 26], "spangram": false}
+        ]
+    },
+    
     "2026-04-23": {
         "title": "Table for two?",
         "letters": [
@@ -29,12 +41,7 @@ const puzzleDatabase = {
             "P", "A", "R", "R", "P", "I"
         ],
         "themeWords": [
-            { 
-                "id": 0, 
-                "word": "DININGOUT", 
-                "path": [30, 36, 37, 31, 32, 33, 34, 28, 29], 
-                "spangram": true 
-            },
+            { "id": 0, "word": "DININGOUT", "path": [30, 36, 37, 31, 32, 33, 34, 28, 29], "spangram": true },
             { "id": 1, "word": "PARLORPIZZA", "path": [42, 43, 44, 38, 39, 45, 46, 47, 41, 40, 35], "spangram": false },
             { "id": 2, "word": "DINTAIFUNG", "path": [18, 24, 25, 19, 20, 26, 27, 21, 22, 23], "spangram": false },
             { "id": 3, "word": "AUCHEVAL", "path": [10, 4, 3, 2, 8, 7, 1, 0], "spangram": false },
@@ -42,7 +49,6 @@ const puzzleDatabase = {
             { "id": 5, "word": "SUR", "path": [5, 11, 17], "spangram": false }
         ]
     },
-    // ... The rest of your dates (2026-04-22, etc.) stay the same,
 
     "2026-04-22": {
         "title": "Earth Day",
@@ -57,12 +63,7 @@ const puzzleDatabase = {
             "B", "E", "N", "S", "D", "W"
         ],
         "themeWords": [
-            { 
-                "id": 0, 
-                "word": "WILLYOUBEMYEARTH", 
-                "path": [0, 6, 12, 18, 24, 30, 36, 42, 43, 37, 31, 25, 19, 13, 7, 1], 
-                "spangram": true 
-            },
+            { "id": 0, "word": "WILLYOUBEMYEARTH", "path": [0, 6, 12, 18, 24, 30, 36, 42, 43, 37, 31, 25, 19, 13, 7, 1], "spangram": true},
             { "id": 1, "word": "RECYCLE", "path": [2, 3, 4, 5, 11, 10, 9], "spangram": false },
             { "id": 2, "word": "PLASTIC", "path": [32, 26, 20, 21, 15, 14, 8], "spangram": false },
             { "id": 3, "word": "NATURE", "path": [44, 38, 39, 33, 34, 35], "spangram": false },
