@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-04-24": {
+    "2026-04-25": {
+        "title": "The Distance",
+        "letters": [
+            "P", "R", "I", "C", "F", "O",
+            "O", "R", "A", "I", "A", "R",
+            "A", "C", "T", "L", "N", "A",
+            "I", "F", "E", "S", "I", "N",
+            "M", "T", "A", "N", "I", "D",
+            "E", "S", "C", "O", "A", "I",
+            "T", "S", "A", "O", "A", "S",
+            "T", "P", "C", "O", "T", "T"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "COASTTOCOAST", "path": [32, 33, 40, 41, 47, 46, 45, 44, 39, 38, 31, 36], "spangram": true },
+            { "id": 1, "word": "FACETIME", "path": [19, 12, 13, 20, 25, 18, 24, 30], "spangram": false },
+            { "id": 2, "word": "CALIFORNIA", "path": [3, 10, 15, 9, 4, 5, 11, 16, 22, 17], "spangram": false },
+            { "id": 3, "word": "INDIANA", "path": [28, 23, 29, 35, 34, 27, 26], "spangram": false },
+            { "id": 4, "word": "AIRPORTS", "path": [8, 2, 1, 0, 6, 7, 14, 21], "spangram": false },
+            { "id": 5, "word": "PST", "path": [43, 37, 42], "spangram": false }
+        ]
+    },
+    
+    "2026-04-24": {
         "title": "Tiles of Truth",
         "letters": [
             "G", "N", "A", "T", "E", "D",
