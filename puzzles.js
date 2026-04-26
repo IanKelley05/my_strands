@@ -5,6 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+        "2026-04-26": {
+        "title": "Teardrop",
+        "letters": [
+            "R", "U", "N", "C", "A", "S",
+            "C", "R", "I", "N", "M", "R",
+            "Y", "H", "L", "N", "O", "I",
+            "A", "E", "P", "E", "K", "L",
+            "C", "N", "L", "O", "O", "A",
+            "T", "O", "B", "O", "N", "T",
+            "P", "O", "M", "R", "K", "T",
+            "H", "P", "E", "S", "A", "U"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "SRILANKA", "path": [5, 11, 17, 23, 29, 34, 40, 46], "spangram": true },
+            { "id": 1, "word": "COLOMBO", "path": [24, 31, 26, 33, 38, 32, 27], "spangram": false },
+            { "id": 2, "word": "HOPPERS", "path": [42, 37, 36, 43, 44, 39, 45], "spangram": false },
+            { "id": 3, "word": "CURRY", "path": [6, 1, 0, 7, 12], "spangram": false },
+            { "id": 4, "word": "KOTTU", "path": [22, 28, 35, 41, 47], "spangram": false },
+            { "id": 5, "word": "ELEPHANT", "path": [21, 14, 19, 20, 13, 18, 25, 30], "spangram": false },
+            { "id": 6, "word": "CINNAMON", "path": [3, 8, 2, 9, 4, 10, 16, 15], "spangram": false }
+        ]
+    },
     "2026-04-25": {
         "title": "The Distance",
         "letters": [
