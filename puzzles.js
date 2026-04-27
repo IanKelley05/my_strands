@@ -5,7 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-04-26": {
+    "2026-04-27": {
+        "title": "27th",
+        "letters": [
+            "T", "N", "T", "Y", "R", "E",
+            "W", "E", "O", "I", "V", "S",
+            "A", "N", "N", "N", "E", "A",
+            "E", "N", "M", "V", "I", "R",
+            "W", "I", "E", "F", "F", "Y",
+            "Y", "O", "A", "N", "Y", "O",
+            "R", "G", "O", "T", "R", "E",
+            "K", "T", "E", "T", "H", "R"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "ANNIVERSARY", "path": [12, 13, 14, 9, 10, 5, 4, 11, 17, 23, 29], "spangram": true },
+            { "id": 1, "word": "FORTYFIVE", "path": [28, 35, 40, 39, 34, 27, 22, 21, 26], "spangram": false },
+            { "id": 2, "word": "TOGETHER", "path": [43, 38, 37, 44, 45, 46, 41, 47], "spangram": false },
+            { "id": 3, "word": "NEWYORK", "path": [19, 18, 24, 30, 31, 36, 42], "spangram": false },
+            { "id": 4, "word": "TWENTYONE", "path": [0, 6, 7, 1, 2, 3, 8, 15, 16], "spangram": false },
+            { "id": 5, "word": "MIAN", "path": [20, 25, 32, 33], "spangram": false }
+        ]
+    },
+    "2026-04-26": {
         "title": "Teardrop",
         "letters": [
             "R", "U", "N", "C", "A", "S",
