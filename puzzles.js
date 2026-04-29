@@ -6,25 +6,25 @@
 
 const puzzleDatabase = {
         "2026-04-29": {
-        "title": "Untitled",
+        "title": "Yummy In My Tummy",
         "letters": [
-            "O", "P", "E", "I", "E", "S",
-            "A", "P", "C", "Y", "H", "T",
-            "L", "K", "F", "E", "A", "C",
-            "T", "I", "O", "P", "K", "P",
-            "R", "U", "A", "I", "T", "A",
-            "A", "E", "N", "U", "N", "N",
-            "A", "C", "P", "N", "O", "D",
-            "T", "O", "R", "O", "S", "A"
+            "P", "A", "N", "S", "R", "A",
+            "C", "H", "D", "E", "Y", "E",
+            "I", "C", "A", "E", "N", "A",
+            "N", "I", "K", "S", "P", "P",
+            "O", "N", "F", "O", "O", "P",
+            "U", "I", "L", "R", "O", "T",
+            "T", "A", "E", "P", "C", "A",
+            "T", "A", "K", "O", "U", "T"
         ],
         "themeWords": [
-            { "id": 0, "word": "TAKEOUT", "path": [11, 16, 22, 15, 20, 25, 18], "spangram": true },
-            { "id": 1, "word": "POPEYES", "path": [7, 0, 1, 2, 9, 4, 5], "spangram": false },
-            { "id": 2, "word": "TACOPROS", "path": [42, 36, 37, 43, 38, 44, 45, 46], "spangram": false },
-            { "id": 3, "word": "CHICKFILA", "path": [17, 10, 3, 8, 13, 14, 19, 12, 6], "spangram": false },
-            { "id": 4, "word": "INNOUT", "path": [27, 34, 39, 40, 33, 28], "spangram": false },
-            { "id": 5, "word": "PANDA", "path": [23, 29, 35, 41, 47], "spangram": false },
-            { "id": 6, "word": "PANERA", "path": [21, 26, 32, 31, 24, 30], "spangram": false }
+            { "id": 0, "word": "TAKEOUT", "path": [42, 43, 44, 38, 45, 46, 47], "spangram": true },
+            { "id": 1, "word": "POPEYES", "path": [29, 28, 22, 15, 10, 9, 3], "spangram": false },
+            { "id": 2, "word": "TACOPROS", "path": [35, 41, 40, 34, 39, 33, 27, 21], "spangram": false },
+            { "id": 3, "word": "CHICKFILA", "path": [6, 7, 12, 13, 20, 26, 31, 32, 37], "spangram": false },
+            { "id": 4, "word": "INNOUT", "path": [19, 25, 18, 24, 30, 36], "spangram": false },
+            { "id": 5, "word": "PANDA", "path": [0, 1, 2, 8, 14], "spangram": false },
+            { "id": 6, "word": "PANERA", "path": [23, 17, 16, 11, 4, 5], "spangram": false }
         ]
     },
     "2026-04-27": {
