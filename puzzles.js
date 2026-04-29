@@ -5,6 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+        "2026-04-29": {
+        "title": "Untitled",
+        "letters": [
+            "O", "P", "E", "I", "E", "S",
+            "A", "P", "C", "Y", "H", "T",
+            "L", "K", "F", "E", "A", "C",
+            "T", "I", "O", "P", "K", "P",
+            "R", "U", "A", "I", "T", "A",
+            "A", "E", "N", "U", "N", "N",
+            "A", "C", "P", "N", "O", "D",
+            "T", "O", "R", "O", "S", "A"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "TAKEOUT", "path": [11, 16, 22, 15, 20, 25, 18], "spangram": true },
+            { "id": 1, "word": "POPEYES", "path": [7, 0, 1, 2, 9, 4, 5], "spangram": false },
+            { "id": 2, "word": "TACOPROS", "path": [42, 36, 37, 43, 38, 44, 45, 46], "spangram": false },
+            { "id": 3, "word": "CHICKFILA", "path": [17, 10, 3, 8, 13, 14, 19, 12, 6], "spangram": false },
+            { "id": 4, "word": "INNOUT", "path": [27, 34, 39, 40, 33, 28], "spangram": false },
+            { "id": 5, "word": "PANDA", "path": [23, 29, 35, 41, 47], "spangram": false },
+            { "id": 6, "word": "PANERA", "path": [21, 26, 32, 31, 24, 30], "spangram": false }
+        ]
+    },
     "2026-04-27": {
         "title": "27th",
         "letters": [
