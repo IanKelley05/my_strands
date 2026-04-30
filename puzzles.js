@@ -5,7 +5,30 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-            "2026-04-30": {
+        "2026-04-30": {
+        "title": "A Material Interest",
+        "letters": [
+            "B", "B", "I", "L", "N", "E",
+            "O", "S", "N", "O", "E", "D",
+            "Z", "B", "P", "O", "A", "L",
+            "I", "I", "G", "Z", "G", "E",
+            "N", "S", "M", "T", "E", "N",
+            "E", "A", "T", "U", "C", "R",
+            "P", "A", "G", "R", "S", "T",
+            "S", "I", "N", "E", "M", "O"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "PATTERN", "path": [36, 37, 32, 27, 28, 35, 29], "spangram": true },
+            { "id": 1, "word": "BOBBIN", "path": [13, 6, 0, 1, 2, 8], "spangram": false },
+            { "id": 2, "word": "INSEAM", "path": [18, 24, 25, 30, 31, 26], "spangram": false },
+            { "id": 3, "word": "SPOOL", "path": [7, 14, 15, 9, 3], "spangram": false },
+            { "id": 4, "word": "NEEDLE", "path": [4, 5, 10, 11, 17, 23], "spangram": false },
+            { "id": 5, "word": "CUSTOM", "path": [34, 33, 40, 41, 47, 46], "spangram": false },
+            { "id": 6, "word": "SINGER", "path": [42, 43, 44, 38, 45, 39], "spangram": false },
+            { "id": 7, "word": "ZIGZAG", "path": [12, 19, 20, 21, 16, 22], "spangram": false }
+        ]
+    },    
+    "2026-04-29": {
         "title": "Billboard 100",
         "letters": [
             "R", "R", "O", "P", "I", "L",
@@ -27,7 +50,7 @@ const puzzleDatabase = {
             { "id": 6, "word": "CARPENTER", "path": [44, 38, 43, 42, 37, 31, 36, 30, 24], "spangram": false }
         ]
     },
-    "2026-04-29": {
+    "2026-04-28": {
         "title": "Yummy In My Tummy",
         "letters": [
             "P", "A", "N", "S", "R", "A",
