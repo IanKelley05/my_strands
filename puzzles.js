@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-04-29": {
+            "2026-04-30": {
+        "title": "Billboard 100",
+        "letters": [
+            "R", "R", "O", "P", "I", "L",
+            "I", "D", "O", "E", "E", "I",
+            "G", "P", "D", "H", "S", "L",
+            "O", "S", "N", "R", "E", "L",
+            "R", "T", "A", "G", "P", "P",
+            "E", "N", "A", "C", "A", "A",
+            "T", "E", "A", "R", "H", "P",
+            "P", "R", "C", "S", "I", "L"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "POPSTARS", "path": [3, 8, 13, 19, 25, 32, 39, 45], "spangram": true },
+            { "id": 1, "word": "RODRIGO", "path": [1, 2, 7, 0, 6, 12, 18], "spangram": false },
+            { "id": 2, "word": "CHAPPELL", "path": [33, 40, 34, 28, 29, 22, 17, 23], "spangram": false },
+            { "id": 3, "word": "LIPA", "path": [47, 46, 41, 35], "spangram": false },
+            { "id": 4, "word": "GRANDE", "path": [27, 21, 26, 20, 14, 9], "spangram": false },
+            { "id": 5, "word": "EILISH", "path": [10, 4, 5, 11, 16, 15], "spangram": false },
+            { "id": 6, "word": "CARPENTER", "path": [44, 38, 43, 42, 37, 31, 36, 30, 24], "spangram": false }
+        ]
+    },
+    "2026-04-29": {
         "title": "Yummy In My Tummy",
         "letters": [
             "P", "A", "N", "S", "R", "A",
