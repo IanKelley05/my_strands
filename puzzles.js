@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-04-30": {
+            "2026-04-30": {
+        "title": "Can't Stop Chewing",
+        "letters": [
+            "O", "F", "T", "O", "R", "I",
+            "T", "S", "A", "N", "B", "T",
+            "N", "E", "O", "V", "E", "I",
+            "M", "I", "T", "R", "D", "R",
+            "F", "V", "E", "I", "T", "A",
+            "E", "R", "G", "B", "E", "R",
+            "W", "I", "L", "R", "X", "T",
+            "Y", "E", "A", "N", "D", "S"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "FAVORITEBRANDS", "path": [1, 8, 15, 14, 21, 27, 20, 26, 33, 39, 44, 45, 46, 47], "spangram": true },
+            { "id": 1, "word": "FIVE", "path": [24, 19, 25, 30], "spangram": false },
+            { "id": 2, "word": "TRIDENT", "path": [28, 23, 17, 22, 16, 9, 2], "spangram": false },
+            { "id": 3, "word": "ORBIT", "path": [3, 4, 10, 5, 11], "spangram": false },
+            { "id": 4, "word": "EXTRA", "path": [34, 40, 41, 35, 29], "spangram": false },
+            { "id": 5, "word": "MENTOS", "path": [18, 13, 12, 6, 0, 7], "spangram": false },
+            { "id": 6, "word": "WRIGLEY", "path": [36, 31, 37, 32, 38, 43, 42], "spangram": false }
+        ]
+    },
+    "2026-04-30": {
         "title": "A Material Interest",
         "letters": [
             "B", "B", "I", "L", "N", "E",
