@@ -6,6 +6,29 @@
 
 const puzzleDatabase = {
         "2026-05-01": {
+        "title": "April Showers Bring",
+        "letters": [
+            "M", "A", "Y", "F", "L", "O",
+            "C", "I", "L", "R", "E", "W",
+            "R", "H", "D", "I", "S", "D",
+            "O", "E", "Y", "L", "A", "I",
+            "R", "W", "O", "E", "Y", "S",
+            "L", "F", "L", "S", "I", "L",
+            "A", "I", "N", "O", "P", "U",
+            "C", "L", "U", "S", "R", "T"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "MAYFLOWERS", "path": [0, 1, 2, 3, 4, 5, 11, 10, 9, 16], "spangram": true },
+            { "id": 1, "word": "TULIP", "path": [47, 41, 35, 34, 40], "spangram": false },
+            { "id": 2, "word": "ROSE", "path": [46, 39, 33, 27], "spangram": false },
+            { "id": 3, "word": "DAISY", "path": [17, 22, 23, 29, 28], "spangram": false },
+            { "id": 4, "word": "LILAC", "path": [43, 37, 30, 36, 42], "spangram": false },
+            { "id": 5, "word": "ORCHID", "path": [18, 12, 6, 13, 7, 14], "spangram": false },
+            { "id": 6, "word": "LILY", "path": [8, 15, 21, 20], "spangram": false },
+            { "id": 7, "word": "SUNFLOWER", "path": [45, 44, 38, 31, 32, 26, 25, 19, 24], "spangram": false }
+        ]
+    },    
+    "2026-04-31": {
         "title": "Can't Stop Chewing",
         "letters": [
             "N", "A", "R", "B", "T", "R",
