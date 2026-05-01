@@ -5,7 +5,7 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-            "2026-04-30": {
+        "2026-04-31": {
         "title": "Can't Stop Chewing",
         "letters": [
             "O", "F", "T", "O", "R", "I",
