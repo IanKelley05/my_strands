@@ -5,7 +5,31 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-05-01": {
+            "2026-05-02": {
+        "title": "Together we are everything",
+        "letters": [
+            "I", "E", "G", "E", "N", "O",
+            "D", "A", "M", "O", "R", "C",
+            "I", "S", "I", "A", "Y", "I",
+            "M", "E", "R", "T", "D", "S",
+            "A", "O", "A", "S", "C", "S",
+            "J", "K", "M", "Y", "I", "A",
+            "S", "Y", "E", "L", "E", "F",
+            "E", "R", "A", "U", "R", "L"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "REALISATION", "path": [43, 38, 44, 39, 34, 27, 26, 21, 14, 9, 4], "spangram": true },
+            { "id": 1, "word": "SKYE", "path": [36, 31, 37, 42], "spangram": false },
+            { "id": 2, "word": "SADIE", "path": [13, 7, 6, 0, 1], "spangram": false },
+            { "id": 3, "word": "CORA", "path": [11, 5, 10, 15], "spangram": false },
+            { "id": 4, "word": "JAMIE", "path": [30, 24, 18, 12, 19], "spangram": false },
+            { "id": 5, "word": "ROMY", "path": [20, 25, 32, 33], "spangram": false },
+            { "id": 6, "word": "FLEUR", "path": [41, 47, 40, 45, 46], "spangram": false },
+            { "id": 7, "word": "CASSIDY", "path": [28, 35, 29, 23, 17, 22, 16], "spangram": false },
+            { "id": 8, "word": "MEG", "path": [8, 3, 2], "spangram": false }
+        ]
+    },
+    "2026-05-01": {
         "title": "April Showers Bring",
         "letters": [
             "M", "A", "Y", "F", "L", "O",
