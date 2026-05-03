@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-            "2026-05-02": {
+                "2026-05-03": {
+        "title": "They are so soft!!",
+        "letters": [
+            "L", "T", "L", "L", "T", "A",
+            "E", "T", "I", "O", "C", "A",
+            "F", "K", "C", "Y", "M", "N",
+            "R", "S", "G", "L", "W", "O",
+            "J", "O", "L", "A", "N", "A",
+            "G", "E", "B", "S", "T", "C",
+            "O", "D", "Y", "O", "R", "O",
+            "P", "U", "P", "P", "B", "M"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "JELLYCAT", "path": [24, 31, 26, 21, 15, 10, 5, 4], "spangram": true },
+            { "id": 1, "word": "BOBA", "path": [46, 39, 32, 27], "spangram": false },
+            { "id": 2, "word": "MRSNOWMAN", "path": [47, 40, 33, 28, 23, 22, 16, 11, 17], "spangram": false },
+            { "id": 3, "word": "PUPPYDOG", "path": [42, 43, 44, 45, 38, 37, 36, 30], "spangram": false },
+            { "id": 4, "word": "LITTLEFROG", "path": [2, 8, 1, 7, 0, 6, 12, 18, 25, 20], "spangram": false },
+            { "id": 5, "word": "LOCKS", "path": [3, 9, 14, 13, 19], "spangram": false },
+            { "id": 6, "word": "TACO", "path": [34, 29, 35, 41], "spangram": false }
+        ]
+    },
+    "2026-05-02": {
         "title": "Together we are everything",
         "letters": [
             "I", "E", "G", "E", "N", "O",
