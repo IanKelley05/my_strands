@@ -5,7 +5,31 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-                "2026-05-03": {
+        "2026-05-04": {
+        "title": "Sole Searching",
+        "letters": [
+            "T", "L", "A", "E", "R", "E",
+            "I", "O", "F", "O", "S", "T",
+            "G", "A", "M", "A", "H", "A",
+            "E", "S", "T", "B", "T", "L",
+            "P", "R", "A", "E", "F", "G",
+            "S", "E", "B", "R", "A", "O",
+            "E", "T", "I", "H", "T", "L",
+            "D", "C", "A", "W", "A", "C"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "WHATARETHOSE", "path": [45, 39, 46, 40, 34, 33, 27, 22, 16, 9, 10, 5], "spangram": true },
+            { "id": 1, "word": "SAMBA", "path": [19, 13, 14, 21, 15], "spangram": false },
+            { "id": 2, "word": "TIGER", "path": [0, 6, 12, 18, 25], "spangram": false },
+            { "id": 3, "word": "CLOG", "path": [47, 41, 35, 29], "spangram": false },
+            { "id": 4, "word": "SPEEDCAT", "path": [30, 24, 31, 36, 42, 43, 44, 37], "spangram": false },
+            { "id": 5, "word": "TABI", "path": [20, 26, 32, 38], "spangram": false },
+            { "id": 6, "word": "FLAT", "path": [28, 23, 17, 11], "spangram": false },
+            { "id": 7, "word": "LOAFER", "path": [1, 7, 2, 8, 3, 4], "spangram": false }
+        ]
+    },
+        
+    "2026-05-03": {
         "title": "They are so soft!!",
         "letters": [
             "L", "T", "L", "L", "T", "A",
