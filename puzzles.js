@@ -5,7 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-05-04": {
+        "2026-05-05": {
+        "title": "Fiesta Feast",
+        "letters": [
+            "I", "W", "Y", "C", "I", "O",
+            "L", "M", "B", "A", "N", "C",
+            "A", "L", "E", "U", "S", "L",
+            "T", "N", "Y", "O", "A", "R",
+            "A", "S", "I", "S", "R", "U",
+            "P", "E", "P", "A", "I", "B",
+            "I", "L", "G", "U", "C", "T",
+            "H", "C", "O", "M", "A", "O"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "WILLYOUBEMYCINCO", "path": [1, 0, 6, 13, 20, 21, 15, 8, 14, 7, 2, 3, 4, 10, 11, 5], "spangram": true },
+            { "id": 1, "word": "BURRITO", "path": [35, 29, 23, 28, 34, 41, 47], "spangram": false },
+            { "id": 2, "word": "GUACAMOLE", "path": [38, 39, 33, 40, 46, 45, 44, 37, 31], "spangram": false },
+            { "id": 3, "word": "PINATA", "path": [32, 26, 19, 12, 18, 24], "spangram": false },
+            { "id": 4, "word": "CHIPS", "path": [43, 42, 36, 30, 25], "spangram": false },
+            { "id": 5, "word": "SALSA", "path": [27, 22, 17, 16, 9], "spangram": false }
+        ]
+    },
+    "2026-05-04": {
         "title": "Sole Searching",
         "letters": [
             "T", "L", "A", "E", "R", "E",
