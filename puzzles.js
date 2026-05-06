@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-05-05": {
+    "2026-05-06": {
+        "title": "Details: 14k, 1.9g, Size 7.5",
+        "letters": [
+            "V", "E", "R", "U", "O", "L",
+            "O", "C", "L", "E", "C", "W",
+            "L", "D", "R", "K", "R", "K",
+            "O", "G", "E", "O", "E", "T",
+            "O", "E", "T", "W", "L", "N",
+            "N", "I", "R", "E", "H", "A",
+            "H", "E", "S", "P", "S", "O",
+            "T", "O", "H", "E", "R", "H"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "GOODLUCK", "path": [19, 24, 18, 13, 8, 3, 10, 17], "spangram": true },
+            { "id": 1, "word": "ELEPHANT", "path": [22, 28, 33, 39, 34, 35, 29, 23], "spangram": false },
+            { "id": 2, "word": "HORSESHOE", "path": [47, 41, 46, 40, 45, 38, 44, 43, 37], "spangram": false },
+            { "id": 3, "word": "OWL", "path": [4, 11, 5], "spangram": false },
+            { "id": 4, "word": "WORKER", "path": [27, 21, 16, 15, 9, 14], "spangram": false },
+            { "id": 5, "word": "THIRTEEN", "path": [42, 36, 31, 32, 26, 20, 25, 30], "spangram": false },
+            { "id": 6, "word": "CLOVER", "path": [7, 12, 6, 0, 1, 2], "spangram": false }
+        ]
+    },
+    "2026-05-05": {
         "title": "Fiesta Feast",
         "letters": [
             "I", "W", "Y", "C", "I", "O",
