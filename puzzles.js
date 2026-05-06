@@ -6,7 +6,7 @@
 
 const puzzleDatabase = {
     "2026-05-06": {
-        "title": "Details: 14k, 1.9g, Size 7.5",
+        "title": "All Details: 14k, 1.9g, Size 7.5",
         "letters": [
             "V", "E", "R", "U", "O", "L",
             "O", "C", "L", "E", "C", "W",
