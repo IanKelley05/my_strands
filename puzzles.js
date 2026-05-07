@@ -5,6 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+    "2026-05-07": {
+        "title": "Life is like a box of...",
+        "letters": [
+            "R", "K", "O", "C", "R", "E",
+            "A", "C", "W", "S", "O", "D",
+            "D", "E", "E", "N", "A", "W",
+            "Y", "T", "M", "U", "P", "O",
+            "B", "U", "E", "I", "L", "K",
+            "C", "H", "R", "N", "E", "A",
+            "I", "T", "O", "D", "L", "T",
+            "H", "W", "E", "C", "O", "E"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "CHOCOLATE", "path": [30, 31, 38, 45, 46, 40, 35, 41, 47], "spangram": true },
+            { "id": 1, "word": "DARK", "path": [12, 6, 0, 1], "spangram": false },
+            { "id": 2, "word": "MILK", "path": [20, 27, 28, 29], "spangram": false },
+            { "id": 3, "word": "WHITE", "path": [43, 42, 36, 37, 44], "spangram": false },
+            { "id": 4, "word": "RUBY", "path": [32, 25, 24, 18], "spangram": false },
+            { "id": 5, "word": "UNSWEETENED", "path": [21, 15, 9, 8, 14, 13, 19, 26, 33, 34, 39], "spangram": false },
+            { "id": 6, "word": "COCOAPOWDER", "path": [7, 2, 3, 10, 16, 22, 23, 17, 11, 5, 4], "spangram": false }
+        ]
+    },
     "2026-05-06": {
         "title": "All Details: 14k, 1.9g, Size 7.5",
         "letters": [
