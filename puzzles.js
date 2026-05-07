@@ -5,7 +5,7 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-    "2026-05-07": {
+    "2026-05-07": { 
         "title": "Life is like a box of...",
         "letters": [
             "R", "K", "O", "C", "R", "E",
