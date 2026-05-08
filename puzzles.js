@@ -5,6 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+    "2026-05-08": {
+        "title": "Just five more minutes...",
+        "letters": [
+            "E", "L", "S", "W", "B", "Y",
+            "R", "E", "I", "T", "R", "O",
+            "T", "T", "R", "A", "E", "U",
+            "A", "E", "N", "I", "B", "T",
+            "D", "T", "S", "R", "O", "U",
+            "O", "I", "N", "T", "L", "L",
+            "M", "O", "R", "O", "R", "O",
+            "S", "C", "S", "T", "S", "H"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "DOOMSCROLL", "path": [24, 30, 37, 36, 42, 43, 38, 39, 34, 35], "spangram": true },
+            { "id": 1, "word": "REELS", "path": [6, 0, 7, 1, 2], "spangram": false },
+            { "id": 2, "word": "SHORTS", "path": [46, 47, 41, 40, 45, 44], "spangram": false },
+            { "id": 3, "word": "BRAINROT", "path": [4, 10, 15, 21, 20, 27, 28, 33], "spangram": false },
+            { "id": 4, "word": "TWITTER", "path": [9, 3, 8, 13, 12, 19, 14], "spangram": false },
+            { "id": 5, "word": "YOUTUBE", "path": [5, 11, 17, 23, 29, 22, 16], "spangram": false },
+            { "id": 6, "word": "INSTA", "path": [31, 32, 26, 25, 18], "spangram": false }
+        ]
+    },
     "2026-05-07": { 
         "title": "Life is like a box of...",
         "letters": [
