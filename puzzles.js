@@ -8,23 +8,23 @@ const puzzleDatabase = {
         "2026-05-09": {
         "title": "Game We Are Going to Play",
         "letters": [
-            "I", "R", "S", "G", "N", "U",
-            "T", "P", "E", "U", "S", "D",
-            "E", "S", "R", "I", "E", "A",
-            "S", "H", "A", "P", "R", "O",
-            "T", "D", "E", "C", "T", "G",
-            "A", "P", "O", "D", "A", "C",
-            "E", "S", "K", "S", "R", "O",
-            "P", "I", "N", "I", "K", "E"
+            "E", "D", "S", "P", "E", "T",
+            "H", "C", "R", "I", "R", "I",
+            "T", "S", "A", "P", "N", "K",
+            "S", "E", "O", "E", "R", "I",
+            "U", "K", "C", "D", "U", "S",
+            "G", "E", "A", "O", "A", "N",
+            "I", "S", "R", "D", "T", "G",
+            "P", "E", "P", "A", "O", "S"
         ],
         "themeWords": [
-            { "id": 0, "word": "GUESSTHEDRINK", "path": [3, 9, 8, 13, 18, 24, 19, 26, 33, 40, 45, 44, 38], "spangram": true },
-            { "id": 1, "word": "COKE", "path": [35, 41, 46, 47], "spangram": false },
-            { "id": 2, "word": "GATORADE", "path": [29, 34, 28, 23, 22, 17, 11, 16], "spangram": false },
-            { "id": 3, "word": "CAPRISUN", "path": [27, 20, 21, 14, 15, 10, 5, 4], "spangram": false },
-            { "id": 4, "word": "PEPSI", "path": [31, 36, 42, 37, 43], "spangram": false },
-            { "id": 5, "word": "SPRITE", "path": [2, 7, 1, 0, 6, 12], "spangram": false },
-            { "id": 6, "word": "SODA", "path": [39, 32, 25, 30], "spangram": false }
+            { "id": 0, "word": "GUESSTHEDRINK", "path": [30, 24, 19, 18, 13, 12, 6, 0, 1, 8, 9, 16, 17], "spangram": true },
+            { "id": 1, "word": "COKE", "path": [26, 20, 25, 31], "spangram": false },
+            { "id": 2, "word": "GATORADE", "path": [41, 34, 40, 33, 38, 32, 27, 21], "spangram": false },
+            { "id": 3, "word": "CAPRISUN", "path": [7, 14, 15, 22, 23, 29, 28, 35], "spangram": false },
+            { "id": 4, "word": "PEPSI", "path": [42, 43, 44, 37, 36], "spangram": false },
+            { "id": 5, "word": "SPRITE", "path": [2, 3, 10, 11, 5, 4], "spangram": false },
+            { "id": 6, "word": "SODA", "path": [47, 46, 39, 45], "spangram": false }
         ]
     },
     "2026-05-08": {
