@@ -5,7 +5,31 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-05-09": {
+            "2026-05-11": {
+        "title": "Big Eyes, Big Feelings",
+        "letters": [
+            "N", "K", "N", "A", "R", "A",
+            "I", "F", "E", "I", "T", "O",
+            "Y", "O", "S", "H", "P", "M",
+            "E", "T", "U", "C", "U", "O",
+            "R", "A", "M", "A", "P", "S",
+            "E", "L", "O", "E", "P", "K",
+            "B", "G", "M", "G", "Y", "N",
+            "A", "N", "D", "A", "P", "U"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "YOSHITOMO", "path": [12, 13, 14, 15, 9, 10, 11, 17, 23], "spangram": true },
+            { "id": 1, "word": "GLARE", "path": [37, 31, 25, 24, 30], "spangram": false },
+            { "id": 2, "word": "KNIFE", "path": [1, 0, 6, 7, 8], "spangram": false },
+            { "id": 3, "word": "PUPPY", "path": [16, 22, 28, 34, 40], "spangram": false },
+            { "id": 4, "word": "BANDAGE", "path": [36, 42, 43, 44, 45, 39, 33], "spangram": false },
+            { "id": 5, "word": "NARA", "path": [2, 3, 4, 5], "spangram": false },
+            { "id": 6, "word": "PUNKS", "path": [46, 47, 41, 35, 29], "spangram": false },
+            { "id": 7, "word": "MOMA", "path": [38, 32, 26, 27], "spangram": false },
+            { "id": 8, "word": "CUTE", "path": [21, 20, 19, 18], "spangram": false }
+        ]
+    },
+    "2026-05-09": {
         "title": "Game We Are Going to Play",
         "letters": [
             "E", "D", "S", "P", "E", "T",
