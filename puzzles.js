@@ -5,7 +5,30 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-            "2026-05-11": {
+    "2026-05-11": {
+        "title": "Best of The Best",
+        "letters": [
+            "E", "I", "L", "T", "L", "B",
+            "N", "Z", "S", "V", "M", "O",
+            "B", "O", "E", "I", "N", "R",
+            "I", "R", "L", "R", "E", "U",
+            "S", "W", "E", "S", "X", "T",
+            "T", "R", "L", "I", "H", "E",
+            "A", "F", "E", "T", "O", "L",
+            "C", "K", "A", "L", "D", "G"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "TRACKATHLETES", "path": [30, 31, 36, 42, 43, 44, 39, 34, 41, 35, 29, 22, 27], "spangram": true },
+            { "id": 1, "word": "NURMI", "path": [16, 23, 17, 10, 15], "spangram": false },
+            { "id": 2, "word": "LEWIS", "path": [20, 26, 25, 18, 24], "spangram": false },
+            { "id": 3, "word": "BOLT", "path": [5, 11, 4, 3], "spangram": false },
+            { "id": 4, "word": "FELIX", "path": [37, 38, 32, 33, 28], "spangram": false },
+            { "id": 5, "word": "GOLD", "path": [47, 40, 45, 46], "spangram": false },
+            { "id": 6, "word": "SILVER", "path": [8, 1, 2, 9, 14, 21], "spangram": false },
+            { "id": 7, "word": "BRONZE", "path": [12, 19, 13, 6, 7, 0], "spangram": false }
+        ]
+    },
+    "2026-05-10": {
         "title": "Big Eyes, Big Feelings",
         "letters": [
             "N", "K", "N", "A", "R", "A",
