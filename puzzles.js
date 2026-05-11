@@ -8,24 +8,24 @@ const puzzleDatabase = {
     "2026-05-11": {
         "title": "Best of The Best",
         "letters": [
-            "E", "I", "L", "T", "L", "B",
-            "N", "Z", "S", "V", "M", "O",
-            "B", "O", "E", "I", "N", "R",
-            "I", "R", "L", "R", "E", "U",
-            "S", "W", "E", "S", "X", "T",
-            "T", "R", "L", "I", "H", "E",
-            "A", "F", "E", "T", "O", "L",
-            "C", "K", "A", "L", "D", "G"
+            "R", "B", "T", "L", "O", "B",
+            "D", "O", "N", "E", "W", "E",
+            "N", "L", "G", "Z", "I", "L",
+            "U", "O", "R", "T", "E", "S",
+            "R", "M", "I", "A", "L", "F",
+            "A", "K", "C", "R", "E", "I",
+            "T", "S", "I", "L", "V", "X",
+            "H", "L", "E", "T", "E", "S"
         ],
         "themeWords": [
-            { "id": 0, "word": "TRACKATHLETES", "path": [30, 31, 36, 42, 43, 44, 39, 34, 41, 35, 29, 22, 27], "spangram": true },
-            { "id": 1, "word": "NURMI", "path": [16, 23, 17, 10, 15], "spangram": false },
-            { "id": 2, "word": "LEWIS", "path": [20, 26, 25, 18, 24], "spangram": false },
-            { "id": 3, "word": "BOLT", "path": [5, 11, 4, 3], "spangram": false },
-            { "id": 4, "word": "FELIX", "path": [37, 38, 32, 33, 28], "spangram": false },
-            { "id": 5, "word": "GOLD", "path": [47, 40, 45, 46], "spangram": false },
-            { "id": 6, "word": "SILVER", "path": [8, 1, 2, 9, 14, 21], "spangram": false },
-            { "id": 7, "word": "BRONZE", "path": [12, 19, 13, 6, 7, 0], "spangram": false }
+            { "id": 0, "word": "TRACKATHLETES", "path": [21, 20, 27, 32, 31, 30, 36, 42, 43, 44, 45, 46, 47], "spangram": true },
+            { "id": 1, "word": "NURMI", "path": [12, 18, 24, 25, 26], "spangram": false },
+            { "id": 2, "word": "LEWIS", "path": [17, 11, 10, 16, 23], "spangram": false },
+            { "id": 3, "word": "BOLT", "path": [5, 4, 3, 2], "spangram": false },
+            { "id": 4, "word": "FELIX", "path": [29, 22, 28, 35, 41], "spangram": false },
+            { "id": 5, "word": "GOLD", "path": [14, 19, 13, 6], "spangram": false },
+            { "id": 6, "word": "SILVER", "path": [37, 38, 39, 40, 34, 33], "spangram": false },
+            { "id": 7, "word": "BRONZE", "path": [1, 0, 7, 8, 15, 9], "spangram": false }
         ]
     },
     "2026-05-10": {
