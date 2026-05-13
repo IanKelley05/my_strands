@@ -6,6 +6,28 @@
 
 const puzzleDatabase = {
     "2026-05-13": {
+        "title": "I hate the tap",
+        "letters": [
+            "T", "O", "D", "A", "S", "A",
+            "L", "T", "B", "T", "I", "N",
+            "E", "A", "R", "E", "A", "W",
+            "R", "T", "M", "S", "H", "E",
+            "A", "N", "I", "O", "W", "A",
+            "I", "E", "A", "J", "R", "D",
+            "N", "V", "Q", "U", "I", "R",
+            "A", "I", "F", "A", "F", "A"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "WATERBOTTLE", "path": [17, 16, 9, 15, 14, 8, 1, 7, 0, 6, 12], "spangram": true },
+            { "id": 1, "word": "DASANI", "path": [2, 3, 4, 5, 11, 10], "spangram": false },
+            { "id": 2, "word": "AQUAFINA", "path": [32, 38, 39, 45, 44, 43, 36, 42], "spangram": false },
+            { "id": 3, "word": "EVIAN", "path": [31, 37, 30, 24, 25], "spangram": false },
+            { "id": 4, "word": "FIJI", "path": [46, 40, 33, 26], "spangram": false },
+            { "id": 5, "word": "SMART", "path": [21, 20, 13, 18, 19], "spangram": false },
+            { "id": 6, "word": "ARROWHEAD", "path": [47, 41, 34, 27, 28, 22, 23, 29, 35], "spangram": false }
+        ]
+    },
+    "2026-05-12": {
         "title": "Toasted over the fire",
         "letters": [
             "M", "S", "R", "O", "D", "A",
