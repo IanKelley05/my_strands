@@ -44,9 +44,9 @@
             min-height: 100vh; 
             background-color: var(--bg-color); 
             color: var(--text-main);
-            touch-action: none; 
+            /*touch-action: none;*/
             box-sizing: border-box;
-            overflow: hidden; 
+            overflow-x: hidden; 
         }
 
         /* --- UPDATED TOP HEADER --- */
@@ -92,6 +92,8 @@
             cursor: pointer;
             outline: none;
             transition: all 0.2s ease;
+            -webkit-user-select: auto !important;
+            user-select: auto !important;            
         }
 
         .date-selector:hover {
@@ -415,6 +417,7 @@
             gap: 15px; 
             position: relative;
             z-index: 2;
+            touch-action: none;
         }
 
         .cell {
@@ -616,6 +619,38 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+                /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 80px 10px 20px; /* Reduce side padding to give the grid room */
+            }
+            .container {
+                gap: 20px; /* Bring the grid closer to the hint section */
+            }
+            .grid {
+                gap: 8px; /* Shrink gaps between letters */
+            }
+            .cell {
+                width: 44px; /* Shrink cells so all 6 columns fit */
+                height: 44px;
+                font-size: 18px;
+            }
+            polyline {
+                stroke-width: 8px; /* Use a thinner line to match the smaller grid */
+            }
+            .header-title {
+                font-size: 24px; /* Scale down the header */
+            }
+            .theme-title {
+                padding: 15px;
+                font-size: 22px;
+            }
+            .intro-title {
+                font-size: 38px;
+            }
+        }
+
     </style>
 </head>
 <body>
