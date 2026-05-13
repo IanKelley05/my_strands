@@ -5,26 +5,26 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-    "2026-05-13": {
+        "2026-05-13": {
         "title": "I hate the tap",
         "letters": [
-            "I", "V", "E", "J", "A", "W",
-            "A", "N", "I", "I", "F", "T",
-            "E", "T", "T", "O", "B", "E",
-            "L", "O", "H", "E", "A", "R",
-            "R", "W", "N", "I", "F", "D",
-            "R", "M", "T", "A", "A", "Q",
-            "A", "S", "A", "R", "U", "A",
-            "D", "A", "S", "A", "N", "I"
+            "S", "M", "A", "O", "R", "A",
+            "A", "I", "Q", "U", "W", "R",
+            "R", "N", "A", "A", "N", "H",
+            "T", "A", "F", "I", "D", "E",
+            "A", "S", "E", "L", "T", "A",
+            "I", "D", "N", "I", "V", "T",
+            "F", "J", "I", "A", "E", "O",
+            "W", "A", "T", "E", "R", "B"
         ],
         "themeWords": [
-            { "id": 0, "word": "WATERBOTTLE", "path": [5, 4, 11, 17, 23, 16, 15, 14, 13, 18, 12], "spangram": true },
-            { "id": 1, "word": "DASANI", "path": [42, 43, 44, 45, 46, 47], "spangram": false },
-            { "id": 2, "word": "AQUAFINA", "path": [41, 35, 40, 34, 28, 27, 26, 33], "spangram": false },
-            { "id": 3, "word": "EVIAN", "path": [2, 1, 0, 6, 7], "spangram": false },
-            { "id": 4, "word": "FIJI", "path": [10, 9, 3, 8], "spangram": false },
-            { "id": 5, "word": "SMART", "path": [37, 31, 38, 39, 32], "spangram": false },
-            { "id": 6, "word": "ARROWHEAD", "path": [36, 30, 24, 19, 25, 20, 21, 22, 29], "spangram": false }
+            { "id": 0, "word": "WATERBOTTLE", "path": [42, 43, 44, 45, 46, 47, 41, 35, 28, 27, 26], "spangram": true },
+            { "id": 1, "word": "DASANI", "path": [31, 24, 25, 19, 13, 7], "spangram": false },
+            { "id": 2, "word": "AQUAFINA", "path": [2, 8, 9, 14, 20, 21, 16, 15], "spangram": false },
+            { "id": 3, "word": "EVIAN", "path": [40, 34, 33, 39, 32], "spangram": false },
+            { "id": 4, "word": "FIJI", "path": [36, 30, 37, 38], "spangram": false },
+            { "id": 5, "word": "SMART", "path": [0, 1, 6, 12, 18], "spangram": false },
+            { "id": 6, "word": "ARROWHEAD", "path": [5, 11, 4, 3, 10, 17, 23, 29, 22], "spangram": false }
         ]
     },
     "2026-05-12": {
