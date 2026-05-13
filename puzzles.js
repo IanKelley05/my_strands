@@ -5,6 +5,27 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+    "2026-05-13": {
+        "title": "Toasted over the fire",
+        "letters": [
+            "M", "S", "R", "O", "D", "A",
+            "R", "A", "E", "C", "K", "O",
+            "H", "S", "R", "S", "Y", "R",
+            "M", "O", "M", "L", "O", "W",
+            "R", "E", "L", "E", "F", "F",
+            "I", "C", "D", "I", "R", "U",
+            "S", "M", "E", "C", "E", "P",
+            "Y", "P", "U", "Y", "J", "T"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "MARSHMELLOW", "path": [0, 7, 6, 13, 12, 18, 25, 26, 21, 22, 23], "spangram": true },
+            { "id": 1, "word": "SMORES", "path": [15, 20, 19, 14, 8, 1], "spangram": false },
+            { "id": 2, "word": "ROCKYROAD", "path": [2, 3, 9, 10, 16, 17, 11, 5, 4], "spangram": false },
+            { "id": 3, "word": "RICECRISPY", "path": [34, 33, 39, 38, 31, 24, 30, 36, 43, 42], "spangram": false },
+            { "id": 4, "word": "JETPUFFED", "path": [46, 40, 47, 41, 35, 29, 28, 27, 32], "spangram": false },
+            { "id": 5, "word": "YUM", "path": [45, 44, 37], "spangram": false }
+        ]
+    },
     "2026-05-11": {
         "title": "Best of The Best",
         "letters": [
