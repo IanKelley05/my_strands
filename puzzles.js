@@ -8,23 +8,23 @@ const puzzleDatabase = {
     "2026-05-13": {
         "title": "I hate the tap",
         "letters": [
-            "T", "O", "D", "A", "S", "A",
-            "L", "T", "B", "T", "I", "N",
-            "E", "A", "R", "E", "A", "W",
-            "R", "T", "M", "S", "H", "E",
-            "A", "N", "I", "O", "W", "A",
-            "I", "E", "A", "J", "R", "D",
-            "N", "V", "Q", "U", "I", "R",
-            "A", "I", "F", "A", "F", "A"
+            "I", "V", "E", "J", "A", "W",
+            "A", "N", "I", "I", "F", "T",
+            "E", "T", "T", "O", "B", "E",
+            "L", "O", "H", "E", "A", "R",
+            "R", "W", "N", "I", "F", "D",
+            "R", "M", "T", "A", "A", "Q",
+            "A", "S", "A", "R", "U", "A",
+            "D", "A", "S", "A", "N", "I"
         ],
         "themeWords": [
-            { "id": 0, "word": "WATERBOTTLE", "path": [17, 16, 9, 15, 14, 8, 1, 7, 0, 6, 12], "spangram": true },
-            { "id": 1, "word": "DASANI", "path": [2, 3, 4, 5, 11, 10], "spangram": false },
-            { "id": 2, "word": "AQUAFINA", "path": [32, 38, 39, 45, 44, 43, 36, 42], "spangram": false },
-            { "id": 3, "word": "EVIAN", "path": [31, 37, 30, 24, 25], "spangram": false },
-            { "id": 4, "word": "FIJI", "path": [46, 40, 33, 26], "spangram": false },
-            { "id": 5, "word": "SMART", "path": [21, 20, 13, 18, 19], "spangram": false },
-            { "id": 6, "word": "ARROWHEAD", "path": [47, 41, 34, 27, 28, 22, 23, 29, 35], "spangram": false }
+            { "id": 0, "word": "WATERBOTTLE", "path": [5, 4, 11, 17, 23, 16, 15, 14, 13, 18, 12], "spangram": true },
+            { "id": 1, "word": "DASANI", "path": [42, 43, 44, 45, 46, 47], "spangram": false },
+            { "id": 2, "word": "AQUAFINA", "path": [41, 35, 40, 34, 28, 27, 26, 33], "spangram": false },
+            { "id": 3, "word": "EVIAN", "path": [2, 1, 0, 6, 7], "spangram": false },
+            { "id": 4, "word": "FIJI", "path": [10, 9, 3, 8], "spangram": false },
+            { "id": 5, "word": "SMART", "path": [37, 31, 38, 39, 32], "spangram": false },
+            { "id": 6, "word": "ARROWHEAD", "path": [36, 30, 24, 19, 25, 20, 21, 22, 29], "spangram": false }
         ]
     },
     "2026-05-12": {
