@@ -5,7 +5,29 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
-        "2026-05-13": {
+    "2026-05-14": {
+        "title": "The job that's never finished",
+        "letters": [
+            "C", "L", "N", "M", "U", "C",
+            "E", "A", "S", "I", "U", "A",
+            "U", "R", "C", "X", "N", "V",
+            "B", "A", "D", "D", "O", "G",
+            "D", "L", "E", "N", "Y", "R",
+            "C", "A", "N", "D", "I", "O",
+            "M", "R", "X", "E", "W", "L",
+            "L", "Y", "S", "O", "L", "C"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "CLEANING", "path": [0, 1, 6, 7, 2, 9, 16, 23], "spangram": true },
+            { "id": 1, "word": "CLOROX", "path": [47, 41, 35, 29, 22, 15], "spangram": false },
+            { "id": 2, "word": "WINDEX", "path": [40, 34, 27, 33, 39, 38], "spangram": false },
+            { "id": 3, "word": "LYSOL", "path": [42, 43, 44, 45, 46], "spangram": false },
+            { "id": 4, "word": "VACUUM", "path": [17, 11, 5, 4, 10, 3], "spangram": false },
+            { "id": 5, "word": "SCRUBDADDY", "path": [8, 14, 13, 12, 18, 24, 19, 20, 21, 28], "spangram": false },
+            { "id": 6, "word": "MRCLEAN", "path": [36, 37, 30, 25, 26, 31, 32], "spangram": false }
+        ]
+    },
+    "2026-05-13": {
         "title": "I hate the tap",
         "letters": [
             "S", "M", "A", "O", "R", "A",
