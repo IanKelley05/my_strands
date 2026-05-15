@@ -5,6 +5,28 @@
 // Use above to help you generate the puzzle
 
 const puzzleDatabase = {
+    "2026-05-15": {
+        "title": "Rackets Only",
+        "letters": [
+            "B", "A", "H", "A", "I", "P",
+            "D", "N", "S", "U", "G", "N",
+            "M", "O", "Q", "S", "N", "G",
+            "I", "T", "A", "M", "O", "P",
+            "N", "G", "I", "L", "E", "S",
+            "T", "P", "L", "C", "E", "P",
+            "E", "S", "E", "K", "D", "A",
+            "N", "I", "N", "N", "E", "T"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "NETGAMES", "path": [42, 36, 30, 25, 20, 21, 28, 29], "spangram": true },
+            { "id": 1, "word": "BADMINTON", "path": [0, 1, 6, 12, 18, 24, 19, 13, 7], "spangram": false },
+            { "id": 2, "word": "TENNIS", "path": [47, 46, 45, 44, 43, 37], "spangram": false },
+            { "id": 3, "word": "PICKLE", "path": [31, 26, 33, 39, 32, 38], "spangram": false },
+            { "id": 4, "word": "PINGPONG", "path": [5, 4, 11, 17, 23, 22, 16, 10], "spangram": false },
+            { "id": 5, "word": "SQUASH", "path": [15, 14, 9, 3, 8, 2], "spangram": false },
+            { "id": 6, "word": "PADEL", "path": [35, 41, 40, 34, 27], "spangram": false }
+        ]
+    },
     "2026-05-14": {
         "title": "The job that's never finished",
         "letters": [
