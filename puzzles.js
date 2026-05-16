@@ -4,7 +4,31 @@
 // https://iankelley05.github.io/createStrandsWords/
 // Use above to help you generate the puzzle
 
-const puzzleDatabase = {
+/*
+
+    "2026-05-16": {
+        "title": "Its just too good!!",
+        "letters": [
+            "W", "O", "N", "S", "R", "F",
+            "N", "O", "C", "I", "D", "I",
+            "T", "B", "M", "E", "R", "E",
+            "C", "R", "E", "U", "A", "O",
+            "T", "U", "C", "L", "R", "P",
+            "U", "E", "L", "K", "G", "U",
+            "N", "O", "A", "B", "N", "F",
+            "D", "I", "N", "T", "A", "I"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "DINTAIFUNG", "path": [42, 43, 44, 45, 46, 47, 41, 35, 40, 34], "spangram": true },
+            { "id": 1, "word": "PORKBAO", "path": [29, 23, 28, 33, 39, 38, 37], "spangram": false },
+            { "id": 2, "word": "WONTONS", "path": [0, 1, 6, 12, 7, 2, 3], "spangram": false },
+            { "id": 3, "word": "FRIEDRICE", "path": [5, 4, 11, 17, 10, 16, 9, 8, 15], "spangram": false },
+            { "id": 4, "word": "CUCUMBER", "path": [18, 25, 26, 21, 14, 13, 20, 19], "spangram": false },
+            { "id": 5, "word": "NUTELLA", "path": [36, 30, 24, 31, 32, 27, 22], "spangram": false }
+        ]
+    }
+
+    ,
     "2026-05-15": {
         "title": "Rackets Only",
         "letters": [
@@ -25,6 +49,32 @@ const puzzleDatabase = {
             { "id": 4, "word": "PINGPONG", "path": [5, 4, 11, 17, 23, 22, 16, 10], "spangram": false },
             { "id": 5, "word": "SQUASH", "path": [15, 14, 9, 3, 8, 2], "spangram": false },
             { "id": 6, "word": "PADEL", "path": [35, 41, 40, 34, 27], "spangram": false }
+        ]
+    }
+
+*/
+
+const puzzleDatabase = {
+    "2026-05-15": {
+        "title": "Its just plastic...",
+        "letters": [
+            "A", "B", "L", "S", "I", "S",
+            "T", "S", "E", "K", "I", "M",
+            "C", "U", "N", "O", "O", "C",
+            "E", "N", "Y", "K", "Y", "R",
+            "L", "D", "C", "Y", "B", "B",
+            "L", "U", "A", "L", "I", "A",
+            "O", "U", "B", "E", "N", "W",
+            "C", "B", "U", "L", "K", "T"
+        ],
+        "themeWords": [
+            { "id": 0, "word": "COLLECTABLE", "path": [42, 36, 30, 24, 18, 12, 6, 0, 1, 2, 8], "spangram": true },
+            { "id": 1, "word": "SMISKI", "path": [5, 11, 4, 3, 9, 10], "spangram": false },
+            { "id": 2, "word": "TWINKLE", "path": [47, 41, 34, 40, 46, 45, 39], "spangram": false },
+            { "id": 3, "word": "SUNNY", "path": [7, 13, 19, 14, 20], "spangram": false },
+            { "id": 4, "word": "LABUBU", "path": [33, 32, 38, 44, 43, 37], "spangram": false },
+            { "id": 5, "word": "CRYBABY", "path": [17, 23, 22, 29, 35, 28, 27], "spangram": false },
+            { "id": 6, "word": "DUCKOO", "path": [25, 31, 26, 21, 15, 16], "spangram": false }
         ]
     },
     "2026-05-14": {
